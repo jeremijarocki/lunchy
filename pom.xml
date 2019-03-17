@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>sda.soft.academy</groupId>
-    <artifactId>orders-app</artifactId>
+    <artifactId>lunchy-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>orders-app</name>
-    <description>orders application</description>
+    <name>lunchy-app</name>
+    <description>lunchy application</description>
 
     <properties>
         <java.version>1.8</java.version>
