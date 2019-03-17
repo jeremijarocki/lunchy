@@ -1,11 +1,13 @@
 package sda.soft.academy.lunchyproject.lunchy.services;
 
+import sda.soft.academy.lunchyproject.lunchy.dto.UserDto;
+
 public interface UserService {
 
-    void register();
+    void register(UserDto userDto);
 
-    void activate();
+    boolean activate(String login, String token);
 
-    void login();
+    boolean login(String login, String password);
 
 }
