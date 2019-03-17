@@ -68,7 +68,8 @@ public class UserServieImpl implements UserService {
 
     @Override
     public boolean login(String login, String password) {
-        return true;
-
+        String encryptedPassword = DigestUtils.md5Hex(password);
+        Optional<User> logged = userRepository.findOneByLoginAndPassword(login, encryptedPassword);
+        return logged.isPresent();
     }
 }

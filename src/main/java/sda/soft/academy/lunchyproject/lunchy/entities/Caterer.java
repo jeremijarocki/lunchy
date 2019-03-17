@@ -1,9 +1,6 @@
 package sda.soft.academy.lunchyproject.lunchy.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Caterer {
@@ -17,6 +14,8 @@ public class Caterer {
     private String cuisine;
     private String telephone;
     private String email;
+
+    @OneToOne
     private Menu menu;
 
     public Caterer() {

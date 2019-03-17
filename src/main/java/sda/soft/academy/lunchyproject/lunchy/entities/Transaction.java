@@ -1,20 +1,18 @@
 package sda.soft.academy.lunchyproject.lunchy.entities;
 
-import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "TRANSACTION_1")
 public class Transaction {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany (fetch = FetchType.EAGER)
-    private List<Order> orderList;
+    @OneToMany
+    private List<Order> orders;
 
     @Enumerated (value = EnumType.STRING)
     private TransactionStatus transactionStatus;
@@ -31,11 +29,11 @@ public class Transaction {
     }
 
     public List<Order> getOrderList() {
-        return orderList;
+        return orders;
     }
 
     public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
+        this.orders = orderList;
     }
 
     public TransactionStatus getTransactionStatus() {
