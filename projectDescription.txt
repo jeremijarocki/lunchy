@@ -1,0 +1,129 @@
+Problem:
+
+Ludzie w firmie zamawiają jedzenie. Gdy dostawa jest płatna, to wtedy szukają innych chętnych, by zamówienie miało odpowiednią kwotę i dostawa była darmowa.
+
+Ewentualnie pytają z czystej kurtuazji, bo skoro oni zamawiają to może też ktoś inny by chciał się podłączyć do zamówienia.
+
+
+Zbierają zamówienia, zamawiają, przychodzi żarcie i inicjator płaci za wszystkich, każdy bierze swoje zamówienie i spożywa. Potem jest problem z płatnościami, ludzie zapominają
+oddać hajsiwko inicjatorowi.
+
+
+Inicjator założył za wszystkich i może się pogubić w tym, kto, co, zamówił, bo ma tylko rachunek z daniami, nie ma dokładnych danych osobowych.
+Trudno jest mu potem odzyskać hajs, musi ścigać ludzi.
+
+Cel aplikacji:
+
+Umożliwienie zbiorowego zamawiania lunchu u danego dostawcy. Dzięki temu nie trzeba chodzić/wydzwaniać po firmie w celu znalezienia innych chętnych do zamówienia u danego dostawcy.
+
+Dzięki temu uproszczony zostanie cały system zamówienia lunchu, bo dana osoba po prostu wejdzie sobie w aplikację i sprawdzi kto już złożył zamówienie i czy dostawa będzie darmowa i że faktycznie dzisiaj będzie dostawa od danego restauratora.
+
+Dostawca będzie miał również dostęp do aplikacji i w łatwy sposób sprawdzi jakie zamówienie ma dostarczyć, więc inicjator nie będzie musiał wszystkiego dyktować przez telefon lub wpisywać w przeglądarkę.
+
+Dzięki temu też unikamy problemu popełnienia błędu przez inicjatora w trakcie zamawiania.
+
+Rodzaje użytkowników:
+
+Inicjator zamówienia - jest to osoba, która jako pierwsza dokonała zamówienia u danego dostawcy w danym dniu. Będzie ona musiała odebrać zamówienie i zapłacić za całość.
+Określa ile osób potrzebuje do ukończenia zamówienia.
+
+Użytkownik - zamawiający - dokłada swoje zamówienie do już istniejącego, musi oddać pieniądze inicjatorowi.
+
+Dostawca - aktualizuje swoje menu w aplikacji, może podejrzeć dzisiejsze i przeszłe zamówienia. Ma informację kto jest inicjatorem (jego dane osobowe i kontakt telefoniczny).
+
+
+
+
+Problem:
+
+Inicjator wciąż będzie musiał założyć hajs za wszystkich zamawiających. W przypadku, gdy będzie ich 30 i każdy złoży zamówienie na 15 złotych, to rachunek wyniesie 450 ziko.
+
+
+Jest to spory problem, ale na ten moment nie jesteśmy w stanie wprowadzić do naszej aplikacji płatności internetowych lub mobilnych.
+
+W tym przypadku można się posiłkować blikiem i coś z nim wymyślić.
+
+Jedyne rozwiązanie na ten moment, to wprowadzenie ograniczenia liczby osób uczestniczących w zamówieniu. Inicjator określa dokładnie ile osób jeszcze mu potrzeba, by ukończyć zamówienie.
+
+Dzięki temu, on decyduje ile osób musi ogarnąć w ściąganiu płatności.
+
+Funkcjonalności:
+
+Rozpoczęcia transakcji zamówienia u danego dostawcy (składane przez inicjatora).
+Inicjator zamówienia - jest to osoba, która zakłada nowe zamówienie u danego dostawcy. Będzie ona musiała odebrać zamówienie i zapłacić za całość.
+
+
+Inicjator będzie miał możliwość określenia ile osób potrzebuje do uzupełnienia swojego zamówienia. Dzięki temu unikamy sytuacji, gdy ktoś będzie zakładał hajs za 50 obcych osób.
+
+
+Inicjator określi dokładnie, że potrzebuje np. jeszcze 4 osób i gdy one się dołączą, to zamówienie jest zamknięte. Określi on również do której godziny przyjmuje zamówienia
+do swojej transakcji, ewentualnie może to odgórnie określi np. 12:00 dla wszystkich zamówień.
+
+
+U tego samego dostawcy można złożyć kolejne zamówienie, ale będzie ono miało nowego inicjatora. Dzięki temu unikniemy zbyt dużych zamówień. Dla dostawcy wciąż jest to dobra sytuacja, bo może on po prostu wysłać jednego gościa ze wszystkimi zamówieniami jednocześnie, a dostawca rozliczy się z każdy inicjatorem osobno.
+
+
+Złożenie zamówienia (składane przez użytkownika), czyli dołączenie do już otwartej transakcji, dodanie swojej pozycji do już istniejącej transakcji.
+
+
+Sprawdzenie listy zamówień na dany dzień (dostawca).
+
+Sprawdzenie listy zamówień na dany dzień (użytkownik). Umożliwia sprwadzenie u którego dostawcy już został otwarte zamówienia w celu dołaczenia.
+
+
+Sprawdzenie historii zamówień (dostawca). Tylko zamówione dania i dane inicjatora.
+
+
+Sprawdzenie historii zamówień (inicjator, użytkownicy). Lista kto, co, zamówił, kiedy i ile to kosztowało, wraz z danymi kontaktowymi do tej osoby.
+
+Aktualizacja menu (dostawca).
+
+Ekrany:
+
+Główny ekran aplikacji (użytkownik/inicjator):
+
+
+Po wejściu do aplikacji natychmiast widzimy już złożone transakcje na dany dzień u danych dostawców.
+
+
+Wyświetlamy zwłaszcza informację o sumarycznej kwocie transakcji i czy dostawa stała się już darmowa. Dokładne dane poszczególnych zamówień nie są istotne, aczkolwiek
+mogą być dostępne po wejściu w wybraną transakcję.
+
+
+Dodatkowo wyświetla się informacja, ile jeszcze osób może dołączyć do danego zamówienia.
+
+
+Dołączenie swojego zamówienia do istniejącej transakcji (użytkownik):
+
+
+Możemy kliknąć na którąś z transakcji, by do niej dołączyć i złożyć swoje zamówienie. Po wejściu w każdą transakcję zamówień, możemy otrzymać informację o danych inicjatora.
+
+
+Ponadto, wyświetla nam się menu danego dostawcy i możemy wybrać interesujące nas danie, które zostanie dołączone do danej transakcji.
+
+Ekran zamówienia (inicjator):
+
+
+Jeśli nie interesują nas już złożone zamówienia, bo chcielibyśmy dostawcę, który jeszcze dzisiaj nie był wybrany, to z boku mamy panel, który umożliwia jego wybór.
+Po wybraniu bocznego panelu i wyborze dostawcy, otwiera się transakcja u danego dostawcy. Otwieramy zamówienie, określamy ilu osób potrzebujemy, by było pełne/zakończone.
+
+
+Wpisujemy swoje dane osobowe i kontaktowe. Zamówienie potem jest opublikowane w aplikacji i czeka na kolejnych chętnych.
+
+ Dostawca może je już przejrzeć.
+
+
+Wyświetla się informacje z potwierdzeniem, że zdajemy sobie sprawę z faktu, że jesteśmy inicjatorem i będziemy zobowiązani do odbioru zamówienia i zapłacenia za nie.
+
+
+Logowanie:
+
+
+Będziemy tworzyć konta dla każdego użytkownika i dostawcy.
+
+Użytkownik musi podać swoje dane kontaktowe (telefon i email), by potem inicjator łatwo mógł z nim się skontaktować w celu odebrania długu. Będzie można edytować dane.
+Dostawca musi podać wszelkie konieczne dane kontaktowe i upload'ować menu. Potem będzie mógł aktualizować dane.
+
+Jeśli będziemy dysponowali adresami email - to później można się zastanowić nad wysyłaniem przypominajek do użytkowników w celu sprawdzenia czy długi zostały uregulowane.
+
+
