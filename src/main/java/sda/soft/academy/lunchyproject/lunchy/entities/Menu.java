@@ -10,23 +10,10 @@ public class Menu {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne (fetch = FetchType.EAGER)
-    @JoinColumn(name = "caterer_id")
-    private Long catererId;
-
-    @OneToMany (mappedBy = "transaction", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn (name = "dish_id")
+    @OneToMany
     private List<Dish> listOfDishes;
 
     public Menu() {
-    }
-
-    public Long getCatererId() {
-        return catererId;
-    }
-
-    public void setCatererId(Long catererId) {
-        this.catererId = catererId;
     }
 
     public List<Dish> getListOfDishes() {

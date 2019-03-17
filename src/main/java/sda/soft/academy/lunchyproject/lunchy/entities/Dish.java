@@ -10,10 +10,6 @@ public class Dish {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn (name = "caterer_id")
-    private Long catererId;
-
     private String name;
     private BigDecimal price;
 
@@ -29,14 +25,6 @@ public class Dish {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getCetererId() {
-        return catererId;
-    }
-
-    public void setCetererId(Long cetererId) {
-        this.catererId = cetererId;
     }
 
     public String getName() {
