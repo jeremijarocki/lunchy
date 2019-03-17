@@ -24,3 +24,4 @@ public class Menu {
         this.listOfDishes = listOfDishes;
     }
 }
+
