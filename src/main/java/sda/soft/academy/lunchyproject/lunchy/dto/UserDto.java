@@ -1,4 +1,4 @@
-package sda.soft.academy.lunchyproject.lunchy.entities;
+package sda.soft.academy.lunchyproject.lunchy.dto;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -6,28 +6,39 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
-@Entity
-public class User {
+public class UserDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Size(min = 5, max = 15)
     private String login;
-    private String password;
-    private String email;
-    private String address;
-    private String firstName;
-    private String lastName;
-    private String token;
-    @Enumerated(value = EnumType.STRING)
-    private UserRole userRole;
-    @Enumerated(value = EnumType.STRING)
-    private UserStatus userStatus;
-    private LocalDateTime insertDate;
-    private LocalDateTime updateDate;
 
-    public User() {
+    @NotNull
+    @Size(min = 5, max = 15)
+    private String password;
+
+    @NotNull
+    @Size(min = 5, max = 15)
+    private String repeatedPassword;
+
+    @NotNull
+    @Email
+    private String email;
+
+    private String address;
+
+    @NotNull
+    @Size(min = 2, max = 50)
+    private String firstName;
+
+    @NotNull
+    @Size(min = 2, max = 50)
+    private String lastName;
+
+    public UserDto() {
     }
 
     public Long getId() {
@@ -52,6 +63,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRepeatedPassword() {
+        return repeatedPassword;
+    }
+
+    public void setRepeatedPassword(String repeatedPassword) {
+        this.repeatedPassword = repeatedPassword;
     }
 
     public String getEmail() {
@@ -84,45 +103,5 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public UserRole getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
-    }
-
-    public UserStatus getUserStatus() {
-        return userStatus;
-    }
-
-    public void setUserStatus(UserStatus userStatus) {
-        this.userStatus = userStatus;
-    }
-
-    public LocalDateTime getInsertDate() {
-        return insertDate;
-    }
-
-    public void setInsertDate(LocalDateTime insertDate) {
-        this.insertDate = insertDate;
-    }
-
-    public LocalDateTime getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(LocalDateTime updateDate) {
-        this.updateDate = updateDate;
     }
 }
