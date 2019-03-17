@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import sda.soft.academy.lunchyproject.lunchy.dto.UserDto;
 
 @Controller
-@RequestMapping(name = "/user")
+//@RequestMapping(name = "/user")
 public class UserController {
 
-    @GetMapping("/register")
+    @GetMapping("/user/register")
     public String registerUser(Model model) {
         UserDto userDto = new UserDto();
         model.addAttribute("user", userDto);

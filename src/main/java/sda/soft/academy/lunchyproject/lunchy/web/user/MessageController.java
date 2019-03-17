@@ -6,9 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-//@Controller
-//public class MessageController {
-//
-//
-//
-//}
+@Controller
+public class MessageController {
+
+    @GetMapping("/message")
+    public String addedUser(@RequestParam String msg, Model model) {
+        model.addAttribute("message", msg);
+        return "user/message";
+    }
+}
+
+
+
