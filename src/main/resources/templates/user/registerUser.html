@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>User register form</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<h1 th:text="#{user.register.form.h1}"></h1>
+<div class="container-fluid">
+
+    <!--<div class="alert alert-warning" th:if="${errorMessage != null}" th:next="${errorMessage}"/>-->
+    <form action="/user/register" th:object="${user}" th:if="${user != null}" method="post">
+
+        <div class="form-group">
+            <label for="login">Login:</label>
+            <input th:field="*{login}" type="text" name="login" class="form-control" id="login" >
+            <ul>
+                <li th:each="err : ${#fields.errors('login')}" th:text="${err}" />
+            </ul>
+        </div>
+        <div class="form-group">
+            <label for="mail">E-mail:</label>
+            <input th:field="*{email}" type="email" name="mail", class="form-control" id="mail">
+            <li th:each="err : ${#fields.errors('email')}" th:text="${err}" />
+        </div>
+
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input th:field="*{firstName}" type="text" name="firstName" class="form-control" id="firstName" >
+            <ul>
+                <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" />
+            </ul>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input th:field="*{lastName}" type="text" name="lastName" class="form-control" id="lastName" >
+            <li th:each="err : ${#fields.errors('lastName')}" th:text="${err}" />
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input th:field="*{address}" type="text" name="address" class="form-control" id="address" >
+            <li th:each="err : ${#fields.errors('address')}" th:text="${err}" />
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input th:field="*{password}" type="password" name="password" class="form-control" id="password" >
+            <li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
+        </div>
+        <div class="form-group">
+            <label for="repeatedPassword">Retype Password:</label>
+            <input th:field="*{repeatedPassword}" type="password" name="repeatedPassword" class="form-control" id="repeatedPassword" >
+        </div>
+        <br><br>
+
+        <button type="submit" class="btn btn-primary" th:text="#{user.register.form.submit.button.text}"/>
+
+
+    </form>
+
+</div>
+
+
+</body>
+
+</html>
