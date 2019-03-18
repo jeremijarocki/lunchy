@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "TRANSACTION_1")
+@Table(name = "transactions")
 public class Transaction {
 
     @Id
@@ -13,6 +13,9 @@ public class Transaction {
 
     @OneToMany
     private List<Order> orders;
+//  jedna transakcja może mieć wiele zamówień, ale każde zamówienie należy tylko do jednej transakcji
+//  pytanie czy powinniśmy określić menuId lub catererId, by zdefiniować na sztywno dostawcę.
+//  w aplikacji po wybraniu transakcji, od razu powinien zawężać się wybór dań tylko do jednego menu.
 
     @Enumerated (value = EnumType.STRING)
     private TransactionStatus transactionStatus;

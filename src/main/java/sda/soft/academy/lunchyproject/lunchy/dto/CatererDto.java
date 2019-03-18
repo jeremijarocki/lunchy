@@ -1,29 +1,28 @@
-package sda.soft.academy.lunchyproject.lunchy.entities;
+package sda.soft.academy.lunchyproject.lunchy.dto;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Entity
-@Table(name = "caterers")
-public class Caterer {
+public class CatererDto {
 
-//    encja dostawców.
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String address;
     private String cuisine;
     private String telephone;
     private String email;
 
-    @OneToOne
-    private Menu menu;
-//  każdy dostawca może mieć tylko jedno menu jednocześnie, jeśli chce coś zmienić, to musi je aktualizować.
-//  dzięki temu unikamy problemu posiadania wielu menu, w tym starych i nieaktualnych.
+    public CatererDto() {
+    }
 
-    public Caterer() {
+    public CatererDto(Long id, String name, String address, String cuisine, String telephone, String email) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.cuisine = cuisine;
+        this.telephone = telephone;
+        this.email = email;
     }
 
     public Long getId() {
@@ -72,13 +71,5 @@ public class Caterer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
     }
 }

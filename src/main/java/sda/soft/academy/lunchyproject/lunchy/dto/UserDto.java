@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 
 public class UserDto {
 
+//    obiekt javy to obsługi w aplikacji
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +21,7 @@ public class UserDto {
     @NotNull
     @Size(min = 5, max = 15)
     private String password;
+    //może warto dodać funkcjonalność w postaci wymuszonego skomplikowania hasła?
 
     @NotNull
     @Size(min = 5, max = 15)

@@ -9,6 +9,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="icon"
+          href="http://icons.iconarchive.com/icons/homare/syokanomikaku/128/Katsuo-Tataki-Fish-Plate-icon.png">
+    <!--powyżej dałem jakąś ikonkę z neta :)-->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
@@ -23,53 +27,57 @@
 
         <div class="form-group">
             <label for="login">Login:</label>
-            <input th:field="*{login}" type="text" name="login" class="form-control" id="login" >
+            <input th:field="*{login}" type="text" name="login" class="form-control" id="login"
+                   placeholder="Login has to be at least 2 characters long">
             <ul>
-                <li th:each="err : ${#fields.errors('login')}" th:text="${err}" />
+                <li th:each="err : ${#fields.errors('login')}" th:text="${err}"/>
             </ul>
         </div>
         <div class="form-group">
             <label for="mail">E-mail:</label>
-            <input th:field="*{email}" type="email" name="mail", class="form-control" id="mail">
-            <li th:each="err : ${#fields.errors('email')}" th:text="${err}" />
+            <input th:field="*{email}" type="email" name="mail" , class="form-control" id="mail"
+                   placeholder="Email has to be valid">
+            <li th:each="err : ${#fields.errors('email')}" th:text="${err}"/>
         </div>
 
         <div class="form-group">
             <label for="firstName">First Name:</label>
-            <input th:field="*{firstName}" type="text" name="firstName" class="form-control" id="firstName" >
+            <input th:field="*{firstName}" type="text" name="firstName" class="form-control" id="firstName"
+                   placeholder="First name has to be at least 2 characters long">
             <ul>
-                <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" />
+                <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}"/>
             </ul>
         </div>
         <div class="form-group">
             <label for="lastName">Last Name:</label>
-            <input th:field="*{lastName}" type="text" name="lastName" class="form-control" id="lastName" >
-            <li th:each="err : ${#fields.errors('lastName')}" th:text="${err}" />
+            <input th:field="*{lastName}" type="text" name="lastName" class="form-control" id="lastName"
+                   placeholder="Last name has to be at least 2 characters long">
+            <li th:each="err : ${#fields.errors('lastName')}" th:text="${err}"/>
         </div>
         <div class="form-group">
             <label for="address">Address:</label>
-            <input th:field="*{address}" type="text" name="address" class="form-control" id="address" >
-            <li th:each="err : ${#fields.errors('address')}" th:text="${err}" />
+            <input th:field="*{address}" type="text" name="address" class="form-control" id="address"
+                   placeholder="Provide your address if you like">
+            <li th:each="err : ${#fields.errors('address')}" th:text="${err}"/>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input th:field="*{password}" type="password" name="password" class="form-control" id="password" >
-            <li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
+            <input th:field="*{password}" type="password" name="password" class="form-control" id="password"
+                   placeholder="Password has to be at least 5 characters long">
+            <li th:each="err : ${#fields.errors('password')}" th:text="${err}"/>
         </div>
         <div class="form-group">
             <label for="repeatedPassword">Retype Password:</label>
-            <input th:field="*{repeatedPassword}" type="password" name="repeatedPassword" class="form-control" id="repeatedPassword" >
+            <input th:field="*{repeatedPassword}" type="password" name="repeatedPassword" class="form-control"
+                   id="repeatedPassword" placeholder="Please repeat the password given above">
         </div>
         <br><br>
 
         <button type="submit" class="btn btn-primary" th:text="#{user.register.form.submit.button.text}"/>
 
-
     </form>
 
 </div>
 
-
 </body>
-
 </html>

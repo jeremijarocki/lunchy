@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @Service
 @Transactional
-public class UserServieImpl implements UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserConverter userConverter;
