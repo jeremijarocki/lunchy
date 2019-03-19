@@ -1,25 +1,24 @@
-package sda.soft.academy.lunchyproject.lunchy.entities;
+package sda.soft.academy.lunchyproject.lunchy.dto;
 
-import javax.persistence.*;
+import sda.soft.academy.lunchyproject.lunchy.entities.DishType;
+
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "dishes")
-public class Dish {
+public class DishDto {
 
-//    encja dań, zakładamy, że każde dane ma indywidualny numer i przynależy tylko do jednego menu.
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private BigDecimal price;
-
-    @Enumerated(value = EnumType.STRING)
     private DishType dishType;
 
-    public Dish() {
+    public DishDto() {
+    }
+
+    public DishDto(Long id, String name, BigDecimal price, DishType dishType) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.dishType = dishType;
     }
 
     public Long getId() {
@@ -54,4 +53,3 @@ public class Dish {
         this.dishType = dishType;
     }
 }
-

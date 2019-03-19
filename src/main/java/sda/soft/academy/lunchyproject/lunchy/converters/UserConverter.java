@@ -9,18 +9,19 @@ import java.util.function.Function;
 @Component
 public class UserConverter implements Function<UserDto, User> {
 
+//    zwykły konwerter obiektu Javy na encję bazy danych
+
     @Override
     public User apply(UserDto userDto) {
         User user = new User();
-//        user.setId(userDto.getId());
-//        user.setLogin(userDto.getLogin());
-//        user.setPassword(userDto.getPassword());
-//        user.setEmail(userDto.getEmail());
-//        user.setAddress(userDto.getAddress());
-//        user.setFirstName(userDto.getFirstName());
-//        user.setLastName(userDto.getLastName());
-//
-        return user;
+        user.setId(userDto.getId());
+        user.setLogin(userDto.getLogin());
+        user.setPassword(userDto.getPassword());
+        user.setEmail(userDto.getEmail());
+        user.setAddress(userDto.getAddress());
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
 
+        return user;
     }
 }
