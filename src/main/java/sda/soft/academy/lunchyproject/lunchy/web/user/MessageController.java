@@ -1,6 +1,6 @@
 package sda.soft.academy.lunchyproject.lunchy.web.user;
 
-//import org.springframework.security.core.Authentication;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MessageController {
 
     @GetMapping("/message")
-    public String addedUser(@RequestParam String msg, Model model) {
+    public String addedUser(@RequestParam String msg, Model model, Authentication authentication) {
+//        model.addAttribute("login", authentication.getName());
         model.addAttribute("message", msg);
         return "user/message";
     }
