@@ -36,8 +36,6 @@ public class UserController {
 
     @GetMapping(name = "/user/login")
     public String loginUser(Model model) {
-        UserDto userDto = new UserDto();
-        model.addAttribute(userDto);
         return "user/userLogin";
     }
 

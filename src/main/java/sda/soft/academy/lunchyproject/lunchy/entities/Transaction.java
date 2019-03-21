@@ -11,6 +11,10 @@ public class Transaction {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne
+    @JoinColumn(name = "caterer_id")
+    private Caterer caterer;
+
     @OneToMany
     private List<Order> orders;
 //  jedna transakcja może mieć wiele zamówień, ale każde zamówienie należy tylko do jednej transakcji

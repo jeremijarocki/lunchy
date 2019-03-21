@@ -17,7 +17,7 @@ public class Menu {
 
     @OneToOne
     private Caterer catererId;
-//  każdy dostawca posiada tylko jedno menu. To określa to jakiego dostawcy należy dane menu.
+//  każdy dostawca posiada tylko jedno menu. To określa do jakiego dostawcy należy dane menu.
 
     public Menu() {
     }
@@ -36,6 +36,14 @@ public class Menu {
 
     public void setListOfDishes(List<Dish> listOfDishes) {
         this.listOfDishes = listOfDishes;
+    }
+
+    public Caterer getCatererId() {
+        return catererId;
+    }
+
+    public void setCatererId(Caterer catererId) {
+        this.catererId = catererId;
     }
 }
 

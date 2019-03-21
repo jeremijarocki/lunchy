@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 public class UserDto {
 
-//    obiekt javy to obsługi w aplikacji
+//    obiekt javy do obsługi w aplikacji
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
