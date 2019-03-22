@@ -1,6 +1,8 @@
 package sda.soft.academy.lunchyproject.lunchy.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -11,10 +13,21 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne //na ten moment, dla ułatwienia, zakładam że użytkownik możę dokonać tylko jednego zamówienia dziennie
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @ManyToOne
+    @JoinColumn(name = "menu_id")
     private Menu menuId;
 //  dane zamówienie jest skierowane tylko do jednego dostawcy. Dlatego relacja jest many to one, bo każdy dostawca posiada tylko jedno menu.
 //  oczywiście można złożyć wiele zamówień do danego dostawcy tego samego dnia.
+
+//    @OneToOne
+//    @JoinColumn(name = "caterer_id")
+//    private Caterer caterer;
+//    to jest raczej zbędne, bo w transakcji jest określony caterer i tylko z jego menu można wybierać dania.
+//    może się przyda do jakiegoś obustronnego sprawdzenia później?
 
     @OneToMany
     private List<Dish> dishList;
@@ -24,7 +37,48 @@ public class Order {
 //  w zamóieniu tworzy się listę dań, których może być wiele. W tym przypadku sytuacja one to many, bo każde zamówienie jest osobne.
 //  dlatego nie potrzeba mapowania w encji DISH, bo to jest jednostronna relacja w tym założeniu
 
+    private LocalDateTime orderDate;
+
+    @OneToOne
+    @JoinColumn(name = "transaction_id")
+    private Transaction transaction;
+//  wychodzę z założenia, że nie można złożyć samego zamówienia, które nie jest dodane do żadnej transakcji.
+//  użytkownik najpierw będzie musiałw wybrać transakcję, więc jej ID będzie już dostępny i dopiero po tym będzie mógł
+//  stworzyć swoje zamówienie, które natychmiast zostanie dodane do wcześniej wybranej transakcji.
+
     public Order() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+//    public Caterer getCaterer() {
+//        return caterer;
+//    }
+//
+//    public void setCaterer(Caterer caterer) {
+//        this.caterer = caterer;
+//    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
 
     public Long getId() {

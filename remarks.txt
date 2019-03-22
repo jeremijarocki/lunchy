@@ -1,0 +1,16 @@
+W porównaniu do aplikacji, którą wcześniej robiliśmy z Michałem (Products, Orders), tutaj nie robię klasy OrderItem.
+Wcześniej dodawała ona produkt do zamówienia, bo ktoś mógł zamówić np. 500 długopisów i robienie tego za pomocą listy było bez sensu.
+W tym przypadku stwierdzam, że bardzo rzadko będzie ktoś zamawiał więcej niż jedno danie, a nawet jeśli, to nie po prostu się
+dodadzą oba do listy, która pozwala na duplikaty.
+
+Wtedy zamówienie będzie miało zdublowane pozycje, ale każda wypisana zostanie osobno.
+Nie powinien to być wielki problem (bo raczej nikt nie zamówi schabowego 50 razy), a nawet będzie bardziej przejrzyście,
+bo dokładnie będzie widać ile jest dań danego rodzaju, a jakiś liczniczek ktoś zawsze mógłby ominąć.
+
+Ponadto, może być tak, że ktoś robi zbiorcze zamówienie dla całego pokoju i wrzuca wszystko w jeden ORDER.
+Łatwiej będzie potem im podzielić hajsy, gdy każde danie będzie z osoba wypisane a nie x3.
+
+Skoro nie ma DishItem, to nie trzeba robić OrderBuilder, bo on przede wszystkim polegał na określeniu liczby sztuk produktu.
+
+Jak budować listy w encjach? Czy do tego musi być stwrzony builder? Bo nie wiem jak wprowadzić przykładowe listy dań.
+
