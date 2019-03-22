@@ -16,10 +16,17 @@ public class Dish {
     private String name;
     private BigDecimal price;
 
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private DishType dishType;
 
     public Dish() {
+    }
+
+    public Dish(Long id, String name, BigDecimal price, DishType dishType) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.dishType = dishType;
     }
 
     public Long getId() {
