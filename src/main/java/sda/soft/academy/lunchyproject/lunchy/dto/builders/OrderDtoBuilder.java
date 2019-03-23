@@ -29,13 +29,15 @@ public class OrderDtoBuilder {
         return this;
     }
 
-    public OrderDtoBuilder addItem(Long dishId) {
+    public OrderDtoBuilder addItem(List<Long> dishIds) {
         if (dishes == null) {
             dishes = new ArrayList<OrderItemDto>();
         }
-        OrderItemDto orderItemDto = new OrderItemDto();
-        orderItemDto.setDishId(dishId);
-        dishes.add(orderItemDto);
+        for (Long id : dishIds) {
+            OrderItemDto orderItemDto = new OrderItemDto();
+            orderItemDto.setDishId(id);
+            dishes.add(orderItemDto);
+        }
 
         return this;
     }

@@ -29,8 +29,8 @@ public class Order {
 //    to jest raczej zbędne, bo w transakcji jest określony caterer i tylko z jego menu można wybierać dania.
 //    może się przyda do jakiegoś obustronnego sprawdzenia później?
 
-    @OneToMany
-    private List<Dish> dishList;
+    @OneToMany (mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<OrderItem> dishList;
 //  zamówienie jest składane przez jedną osobę, ale ta osoba może zamówić więcej niż jedno danie, bo np. jest JUBY.
 //  ponadto, osoba może zamówić dla kolegi, który akurat nie może zmienić zamówienia.
 //  wciąż wybiera się dania tylko z jednego menu, ale tych dań może być wiele.
@@ -40,7 +40,7 @@ public class Order {
     private LocalDateTime orderDate;
 
     @OneToOne
-    @JoinColumn(name = "transaction_id")
+    @JoinColumn(name = "transactions_id")
     private Transaction transaction;
 //  wychodzę z założenia, że nie można złożyć samego zamówienia, które nie jest dodane do żadnej transakcji.
 //  użytkownik najpierw będzie musiałw wybrać transakcję, więc jej ID będzie już dostępny i dopiero po tym będzie mógł
@@ -97,11 +97,11 @@ public class Order {
         this.menuId = menuId;
     }
 
-    public List<Dish> getDishList() {
+    public List<OrderItem> getDishList() {
         return dishList;
     }
 
-    public void setDishList(List<Dish> dishList) {
+    public void setDishList(List<OrderItem> dishList) {
         this.dishList = dishList;
     }
 }
