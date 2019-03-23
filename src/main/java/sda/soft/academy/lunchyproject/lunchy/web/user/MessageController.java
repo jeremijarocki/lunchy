@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MessageController {
 
     @GetMapping("/message")
-    public String addedUser(@RequestParam String msg, Model model, Authentication authentication) {
+    public String addedUser(@RequestParam String msg, Model model) { //, Authentication authentication
 //        model.addAttribute("login", authentication.getName());
         model.addAttribute("message", msg);
-        return "user/message";
+        return "user/registeredUserMsg";
     }
 }
 

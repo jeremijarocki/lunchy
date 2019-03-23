@@ -22,8 +22,8 @@
 <h1 th:text="#{user.register.form.h1}"></h1>
 <div class="container-fluid">
 
-    <!--<div class="alert alert-warning" th:if="${errorMessage != null}" th:next="${errorMessage}"/>-->
-    <form action="/user/register" th:object="${user}" th:if="${user != null}">
+    <div class="alert alert-warning" th:if="${errorMessage != null}" th:next="${errorMessage}"/>
+    <form action="/user/register" th:object="${user}" th:if="${user != null}" method="post">
 <!--method="post"-->
 
         <div class="form-group">
