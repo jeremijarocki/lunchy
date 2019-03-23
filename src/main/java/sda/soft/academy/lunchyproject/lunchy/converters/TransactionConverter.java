@@ -38,7 +38,7 @@ public class TransactionConverter  implements Function<TransactionDto, Transacti
                     .map(transactionItemDto -> transactionItemConverter.apply(transactionItemDto,transaction))
                     .collect(Collectors.toList());
 
-            transaction.setOrderList(transactionItems);
+            transaction.setOrdersList(transactionItems);
         }
         return transaction;
     }

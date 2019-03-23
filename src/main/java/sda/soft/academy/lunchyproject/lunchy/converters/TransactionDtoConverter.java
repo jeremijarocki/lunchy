@@ -21,8 +21,8 @@ public class TransactionDtoConverter implements Function<Transaction, Transactio
         TransactionDto transactionDto = new TransactionDto();
         transactionDto.setId(transaction.getId());
         transactionDto.setCatererId(transaction.getCaterer().getId());
-        if (transaction.getOrderList() != null) {
-            List<TransactionItemDto> orders = transaction.getOrderList()
+        if (transaction.getOrdersList() != null) {
+            List<TransactionItemDto> orders = transaction.getOrdersList()
                     .stream().map(transactionItemDtoConverter)
                     .collect(Collectors.toList());
 
