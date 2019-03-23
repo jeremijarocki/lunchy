@@ -39,7 +39,11 @@ public class OrderConverter implements Function<OrderDto, Order> {
         if(user.isPresent()) {
             order.setUser(user.get());
         }
-        order.setMenuId(orderDto.getMenuId());
+        Optional<Menu> menu = menuRepository.findById(orderDto.getMenuId());
+        if(menu.isPresent()) {
+            order.setMenuId(menu.get());
+        }
+
         if(orderDto.getDishDtoList() != null) {
             List<OrderItem> orderItems = orderDto.getDishDtoList()
                     .stream()
