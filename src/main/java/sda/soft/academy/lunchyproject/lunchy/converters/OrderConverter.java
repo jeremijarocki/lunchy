@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import sda.soft.academy.lunchyproject.lunchy.dto.OrderDto;
 import sda.soft.academy.lunchyproject.lunchy.dto.OrderItemDto;
 import sda.soft.academy.lunchyproject.lunchy.entities.*;
-//import sda.soft.academy.lunchyproject.lunchy.repository.MenuRepository;
+import sda.soft.academy.lunchyproject.lunchy.repository.CatererRepository;
 import sda.soft.academy.lunchyproject.lunchy.repository.TransactionRepository;
 import sda.soft.academy.lunchyproject.lunchy.repository.UserRepository;
 
@@ -22,14 +22,14 @@ public class OrderConverter implements Function<OrderDto, Order> {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private MenuRepository menuRepository;
-
     @Autowired
     private TransactionRepository transactionRepository;
 
     @Autowired
     private OrderItemConverter orderItemConverter;
+
+    @Autowired
+    private CatererRepository catererRepository;
 
     @Override
     public Order apply(OrderDto orderDto) {
@@ -40,21 +40,24 @@ public class OrderConverter implements Function<OrderDto, Order> {
         if(user.isPresent()) {
             order.setUser(user.get());
         }
-//        Optional<Menu> menu = menuRepository.findById(orderDto.getMenuId());
-//        if(menu.isPresent()) {
-//            order.setMenuId(menu.get());
-//        }
 
         if(orderDto.getDishDtoList() != null) {
             List<OrderItem> orderItems = orderDto.getDishDtoList()
                     .stream()
                     .map(orderItemDto -> orderItemConverter.apply(orderItemDto,order))
                     .collect(Collectors.toList());
+
+            order.setDishList(orderItems);
         }
 
         Optional<Transaction> transaction = transactionRepository.findById(orderDto.getTransactionId());
         if (transaction.isPresent()) {
             order.setTransaction(transaction.get());
+        }
+
+        Optional<Caterer> caterer = catererRepository.findById(orderDto.getCatererId());
+        if(caterer.isPresent()) {
+            order.setCatererId(caterer.get());
         }
         return order;
     }

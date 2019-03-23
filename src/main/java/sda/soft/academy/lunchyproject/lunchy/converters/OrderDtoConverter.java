@@ -26,6 +26,8 @@ public class OrderDtoConverter implements Function<Order, OrderDto> {
             List<OrderItemDto> dishes = order.getDishList().stream().map(orderItemDtoConverter).collect(Collectors.toList());
             orderDto.setDishDtoList(dishes);
         }
+        orderDto.setTransactionId(order.getTransaction().getId());
+
         return orderDto;
     }
 }
