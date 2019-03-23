@@ -1,12 +1,11 @@
 package sda.soft.academy.lunchyproject.lunchy.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "caterers")
 public class Caterer {
-
-//    encja dostawców.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +17,8 @@ public class Caterer {
     private String telephone;
     private String email;
 
-    @OneToOne
-    private Menu menu;
+    @OneToMany (mappedBy = "catererId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Dish> dishList;
 //  każdy dostawca może mieć tylko jedno menu jednocześnie, jeśli chce coś zmienić, to musi je aktualizować.
 //  dzięki temu unikamy problemu posiadania wielu menu, w tym starych i nieaktualnych.
 
@@ -74,11 +73,11 @@ public class Caterer {
         this.email = email;
     }
 
-    public Menu getMenu() {
-        return menu;
+    public List<Dish> getDishList() {
+        return dishList;
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
+    public void setDishList(List<Dish> dishList) {
+        this.dishList = dishList;
     }
 }

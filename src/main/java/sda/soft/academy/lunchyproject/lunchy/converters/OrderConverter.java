@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import sda.soft.academy.lunchyproject.lunchy.dto.OrderDto;
 import sda.soft.academy.lunchyproject.lunchy.dto.OrderItemDto;
 import sda.soft.academy.lunchyproject.lunchy.entities.*;
-import sda.soft.academy.lunchyproject.lunchy.repository.MenuRepository;
+//import sda.soft.academy.lunchyproject.lunchy.repository.MenuRepository;
 import sda.soft.academy.lunchyproject.lunchy.repository.TransactionRepository;
 import sda.soft.academy.lunchyproject.lunchy.repository.UserRepository;
 
@@ -22,8 +22,8 @@ public class OrderConverter implements Function<OrderDto, Order> {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private MenuRepository menuRepository;
+//    @Autowired
+//    private MenuRepository menuRepository;
 
     @Autowired
     private TransactionRepository transactionRepository;
@@ -40,10 +40,10 @@ public class OrderConverter implements Function<OrderDto, Order> {
         if(user.isPresent()) {
             order.setUser(user.get());
         }
-        Optional<Menu> menu = menuRepository.findById(orderDto.getMenuId());
-        if(menu.isPresent()) {
-            order.setMenuId(menu.get());
-        }
+//        Optional<Menu> menu = menuRepository.findById(orderDto.getMenuId());
+//        if(menu.isPresent()) {
+//            order.setMenuId(menu.get());
+//        }
 
         if(orderDto.getDishDtoList() != null) {
             List<OrderItem> orderItems = orderDto.getDishDtoList()

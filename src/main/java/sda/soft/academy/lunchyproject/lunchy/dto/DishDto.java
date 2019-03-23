@@ -10,15 +10,18 @@ public class DishDto {
     private String name;
     private BigDecimal price;
     private String dishType;
+    private Long catererId;
 
     public DishDto() {
     }
 
-    public DishDto(Long id, String name, BigDecimal price, String dishType) {
+    public DishDto(Long id, String name, BigDecimal price, String dishType, Long catererId) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.dishType = dishType;
+        this.catererId = catererId;
+
     }
 
     public Long getId() {
@@ -51,5 +54,13 @@ public class DishDto {
 
     public void setDishType(String dishType) {
         this.dishType = dishType;
+    }
+
+    public Long getCatererId() {
+        return catererId;
+    }
+
+    public void setCatererId(Long catererId) {
+        this.catererId = catererId;
     }
 }

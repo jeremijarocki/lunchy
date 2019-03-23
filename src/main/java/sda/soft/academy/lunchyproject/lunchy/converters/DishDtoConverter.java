@@ -10,6 +10,6 @@ import java.util.function.Function;
 public class DishDtoConverter implements Function<Dish, DishDto> {
     @Override
     public DishDto apply(Dish dish) {
-        return new DishDto(dish.getId(), dish.getName(), dish.getPrice(), dish.getDishType().name());
+        return new DishDto(dish.getId(), dish.getName(), dish.getPrice(), dish.getDishType().name(), dish.getCatererId().getId());
     }
 }
