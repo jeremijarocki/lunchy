@@ -4,7 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
+//exclude ozancza wylaczenie Spring Security Auto Configuration, aby nie pytalo o zalogowanie za kazdym razem
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class LunchyApplication {
 
     public static void main(String[] args) {
