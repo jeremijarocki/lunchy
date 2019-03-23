@@ -8,13 +8,18 @@ import java.util.List;
 public class MenuDto {
 
     private Long id;
-    private List<Dish> listOfDishes;
-    private Caterer catererId;
+    private List<DishDto> listOfDishes;
+    private Long catererId;
 
     public MenuDto() {
     }
 
-    public MenuDto(Long id, List<Dish> listOfDishes, Caterer catererId) {
+    public MenuDto(Long id, Long catererId) {
+        this.id = id;
+        this.catererId = catererId;
+    }
+
+    public MenuDto(Long id, List<DishDto> listOfDishes, Long catererId) {
         this.id = id;
         this.listOfDishes = listOfDishes;
         this.catererId = catererId;
@@ -28,19 +33,19 @@ public class MenuDto {
         this.id = id;
     }
 
-    public List<Dish> getListOfDishes() {
+    public List<DishDto> getListOfDishes() {
         return listOfDishes;
     }
 
-    public void setListOfDishes(List<Dish> listOfDishes) {
+    public void setListOfDishes(List<DishDto> listOfDishes) {
         this.listOfDishes = listOfDishes;
     }
 
-    public Caterer getCatererId() {
+    public Long getCatererId() {
         return catererId;
     }
 
-    public void setCatererId(Caterer catererId) {
+    public void setCatererId(Long catererId) {
         this.catererId = catererId;
     }
 }

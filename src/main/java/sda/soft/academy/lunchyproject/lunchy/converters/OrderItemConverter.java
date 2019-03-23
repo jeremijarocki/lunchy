@@ -23,29 +23,18 @@ import java.util.function.BiFunction;
 public class OrderItemConverter implements BiFunction<OrderItemDto, Order, OrderItem> {
 
     @Autowired
-
     private DishRepository dishRepository;
 
     @Override
-
     public OrderItem apply(OrderItemDto orderItemDto, Order order) {
 
         OrderItem orderItem = new OrderItem();
-
         orderItem.setOrder(order);
 
-   
-
-        //TODO rozwiąż ten problem, nie wiem z czego to wynika
-
         Long dishId = orderItemDto.getDishId();
-
         Optional<Dish> dish = dishRepository.findById(dishId);
-
         dish.ifPresent(dish1 -> orderItem.setDish(dish1));
 
         return orderItem;
-
     }
-
 }
