@@ -8,13 +8,13 @@ public class TransactionDto {
 
     private Long id;
     private Long catererId;
-    private List<Order> orderList;
+    private List<TransactionItemDto> orderList;
     private String transactionStatus;
 
     public TransactionDto() {
     }
 
-    public TransactionDto(Long id, Long catererId, List<Order> orderList, String transactionStatus) {
+    public TransactionDto(Long id, Long catererId, List<TransactionItemDto> orderList, String transactionStatus) {
         this.id = id;
         this.catererId = catererId;
         this.orderList = orderList;
@@ -37,11 +37,11 @@ public class TransactionDto {
         this.catererId = catererId;
     }
 
-    public List<Order> getOrderList() {
+    public List<TransactionItemDto> getOrderList() {
         return orderList;
     }
 
-    public void setOrderList(List<Order> orderList) {
+    public void setOrderList(List<TransactionItemDto> orderList) {
         this.orderList = orderList;
     }
 

@@ -17,12 +17,6 @@ public class Order {
     @JoinColumn(name = "users_id")
     private User user;
 
-//    @ManyToOne
-//    @JoinColumn(name = "menus_id")
-//    private Menu menuId;
-//  dane zamówienie jest skierowane tylko do jednego dostawcy. Dlatego relacja jest many to one, bo każdy dostawca posiada tylko jedno menu.
-//  oczywiście można złożyć wiele zamówień do danego dostawcy tego samego dnia.
-
 //    @OneToOne
 //    @JoinColumn(name = "caterer_id")
 //    private Caterer caterer;
@@ -61,14 +55,6 @@ public class Order {
         this.user = user;
     }
 
-//    public Caterer getCaterer() {
-//        return caterer;
-//    }
-//
-//    public void setCaterer(Caterer caterer) {
-//        this.caterer = caterer;
-//    }
-
     public LocalDateTime getOrderDate() {
         return orderDate;
     }
@@ -92,14 +78,6 @@ public class Order {
     public void setId(Long id) {
         this.id = id;
     }
-
-//    public Menu getMenuId() {
-//        return menuId;
-//    }
-//
-//    public void setMenuId(Menu menuId) {
-//        this.menuId = menuId;
-//    }
 
     public List<OrderItem> getDishList() {
         return dishList;

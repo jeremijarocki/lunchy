@@ -8,20 +8,20 @@ import java.util.List;
 public class Transaction {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "caterers_id")
+    @JoinColumn(name = "caterer_id")
     private Caterer caterer;
 
-    @OneToMany
-    private List<Order> orders;
+    @OneToMany(mappedBy = "transaction")
+    private List<TransactionItem> ordersList;
 //  jedna transakcja może mieć wiele zamówień, ale każde zamówienie należy tylko do jednej transakcji
 //  pytanie czy powinniśmy określić menuId lub catererId, by zdefiniować na sztywno dostawcę.
 //  w aplikacji po wybraniu transakcji, od razu powinien zawężać się wybór dań tylko do jednego menu.
 
-    @Enumerated (value = EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private TransactionStatus transactionStatus;
 
     public Transaction() {
@@ -35,12 +35,12 @@ public class Transaction {
         this.id = id;
     }
 
-    public List<Order> getOrderList() {
-        return orders;
+    public List<TransactionItem> getOrderList() {
+        return ordersList;
     }
 
-    public void setOrderList(List<Order> orderList) {
-        this.orders = orderList;
+    public void setOrderList(List<TransactionItem> orderList) {
+        this.ordersList = orderList;
     }
 
     public TransactionStatus getTransactionStatus() {
@@ -49,6 +49,14 @@ public class Transaction {
 
     public void setTransactionStatus(TransactionStatus transactionStatus) {
         this.transactionStatus = transactionStatus;
+    }
+
+    public Caterer getCaterer() {
+        return caterer;
+    }
+
+    public void setCaterer(Caterer caterer) {
+        this.caterer = caterer;
     }
 }
 
