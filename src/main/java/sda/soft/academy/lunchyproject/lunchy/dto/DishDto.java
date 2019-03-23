@@ -9,12 +9,12 @@ public class DishDto {
     private Long id;
     private String name;
     private BigDecimal price;
-    private DishType dishType;
+    private String dishType;
 
     public DishDto() {
     }
 
-    public DishDto(Long id, String name, BigDecimal price, DishType dishType) {
+    public DishDto(Long id, String name, BigDecimal price, String dishType) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -45,11 +45,11 @@ public class DishDto {
         this.price = price;
     }
 
-    public DishType getDishType() {
+    public String getDishType() {
         return dishType;
     }
 
-    public void setDishType(DishType dishType) {
+    public void setDishType(String dishType) {
         this.dishType = dishType;
     }
 }
