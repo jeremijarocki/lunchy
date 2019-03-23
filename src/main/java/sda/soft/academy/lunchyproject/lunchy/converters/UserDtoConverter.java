@@ -2,8 +2,9 @@
 //
 //import org.springframework.stereotype.Component;
 
-// ten converter chyba nie jest nam potrzebny. Kiedy będziemy wyciągać encję z bazy i rzutować do pliku?
-// Co będziemy robić z obiektem użytkownika?
+// ten converter chyba nie jest nam potrzebny. Kiedy będziemy wyciągać encję użytkowika z bazy i rzutować do obiektu?
+// Co będziemy robić z takim obiektem?
+// Pomimo tych wątpliwości zostawiam to tutaj.
 
 
 //import sda.soft.academy.lunchyproject.lunchy.dto.UserDto;

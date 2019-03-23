@@ -12,20 +12,18 @@ public class OrderDto {
     private Long id;
     private Long userId;
     private Long menuId;
-    private List<DishDto> dishDtoList;
+    private List<OrderItemDto> dishDtoList;
     private LocalDateTime orderDate;
     private Long transactionId;
 
     public OrderDto() {
     }
 
-    public OrderDto(Long id, Long userId, Long menuId, List<DishDto> dishDtoList, LocalDateTime orderDate, Long transactionId) {
+
+    public OrderDto(Long id, Long userId,  LocalDateTime orderDate) {
         this.id = id;
         this.userId = userId;
-        this.menuId = menuId;
-        this.dishDtoList = dishDtoList;
         this.orderDate = orderDate;
-        this.transactionId = transactionId;
     }
 
     public Long getId() {
@@ -52,11 +50,11 @@ public class OrderDto {
         this.menuId = menuId;
     }
 
-    public List<DishDto> getDishDtoList() {
+    public List<OrderItemDto> getDishDtoList() {
         return dishDtoList;
     }
 
-    public void setDishDtoList(List<DishDto> dishDtoList) {
+    public void setDishDtoList(List<OrderItemDto> dishDtoList) {
         this.dishDtoList = dishDtoList;
     }
 

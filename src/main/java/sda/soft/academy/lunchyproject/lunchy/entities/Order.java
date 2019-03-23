@@ -19,7 +19,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "menu_id")
-    private Menu menuId;
+    private Long menuId;
 //  dane zamówienie jest skierowane tylko do jednego dostawcy. Dlatego relacja jest many to one, bo każdy dostawca posiada tylko jedno menu.
 //  oczywiście można złożyć wiele zamówień do danego dostawcy tego samego dnia.
 
@@ -89,11 +89,11 @@ public class Order {
         this.id = id;
     }
 
-    public Menu getMenuId() {
+    public Long getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(Menu menuId) {
+    public void setMenuId(Long menuId) {
         this.menuId = menuId;
     }
 
