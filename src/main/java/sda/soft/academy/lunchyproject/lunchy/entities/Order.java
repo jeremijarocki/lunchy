@@ -14,12 +14,12 @@ public class Order {
     private Long id;
 
     @OneToOne //na ten moment, dla ułatwienia, zakładam że użytkownik możę dokonać tylko jednego zamówienia dziennie
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "users_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "menu_id")
-    private Long menuId;
+    @JoinColumn(name = "menus_id")
+    private Menu menuId;
 //  dane zamówienie jest skierowane tylko do jednego dostawcy. Dlatego relacja jest many to one, bo każdy dostawca posiada tylko jedno menu.
 //  oczywiście można złożyć wiele zamówień do danego dostawcy tego samego dnia.
 
@@ -89,11 +89,11 @@ public class Order {
         this.id = id;
     }
 
-    public Long getMenuId() {
+    public Menu getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(Long menuId) {
+    public void setMenuId(Menu menuId) {
         this.menuId = menuId;
     }
 
