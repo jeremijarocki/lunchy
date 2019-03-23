@@ -7,5 +7,5 @@ INSERT INTO DISHES (NAME, PRICE, DISH_TYPE) VALUES ('RYŻ SMAŻONY Z KURCZAKIEM'
 -- INSERT INTO ORDERS (USER, MENU_ID, DISH_LIST, ORDER_DATE, TRANSACTION_ID)
 -- VALUES (1, 1, 1, 2019-03-21, 1);
 
--- login test, haslo abc123 (zahashowane)
-INSERT INTO USERS (login, password) VALUES ('test', 'e99a18c428cb38d5f260853678922e03');
+-- login tester, haslo abc123 (zahashowane)
+INSERT INTO USERS (login, password) VALUES ('tester', 'e99a18c428cb38d5f260853678922e03');

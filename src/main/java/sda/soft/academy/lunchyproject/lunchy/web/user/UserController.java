@@ -6,10 +6,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import sda.soft.academy.lunchyproject.lunchy.dto.UserDto;
 import sda.soft.academy.lunchyproject.lunchy.services.UserService;
 
@@ -49,6 +46,22 @@ public class UserController {
                     new Object[] {userDto.getLogin(), userDto.getEmail()}, Locale.getDefault());
 
             return "redirect:/message?msg=" + messageRegistrationSuccess;
+        }
+    }
+
+    @GetMapping("/user/activate")
+    public String activateUser(@RequestParam String login, @RequestParam String token) {
+        boolean activated = userService.activate(login, token);
+
+        if (activated) {
+            String loginAddress = lunchyServerAddress + "/user/login";
+            String messageActivationSuccess = messageSource.getMessage("user.activation.info.success",
+                    new Object[] {login, loginAddress}, Locale.getDefault());
+            return "redirect:/message?msg=" + messageActivationSuccess;
+        } else {
+            String messageActivationFailure = messageSource.getMessage("user.activation.info.failure",
+                    new Object[] {login}, Locale.getDefault());
+            return "redirect:/message?msg=" + messageActivationFailure;
         }
     }
 
