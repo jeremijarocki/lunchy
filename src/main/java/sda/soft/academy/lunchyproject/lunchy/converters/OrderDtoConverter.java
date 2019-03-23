@@ -21,7 +21,7 @@ public class OrderDtoConverter implements Function<Order, OrderDto> {
         OrderDto orderDto = new OrderDto();
         orderDto.setId(order.getId());
         orderDto.setUserId(order.getUser().getId());
-        orderDto.setMenuId(order.getMenuId().getId());
+        orderDto.setCatererId(order.getCatererId().getId());
         if (order.getDishList() != null) {
             List<OrderItemDto> dishes = order.getDishList().stream().map(orderItemDtoConverter).collect(Collectors.toList());
             orderDto.setDishDtoList(dishes);

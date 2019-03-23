@@ -1,6 +1,5 @@
 package sda.soft.academy.lunchyproject.lunchy.dto;
 
-import sda.soft.academy.lunchyproject.lunchy.entities.Menu;
 import sda.soft.academy.lunchyproject.lunchy.entities.Transaction;
 import sda.soft.academy.lunchyproject.lunchy.entities.User;
 
@@ -11,7 +10,7 @@ public class OrderDto {
 
     private Long id;
     private Long userId;
-    private Long menuId;
+    private Long catererId;
     private List<OrderItemDto> dishDtoList;
     private LocalDateTime orderDate;
     private Long transactionId;
@@ -42,12 +41,12 @@ public class OrderDto {
         this.userId = userId;
     }
 
-    public Long getMenuId() {
-        return menuId;
+    public Long getCatererId() {
+        return catererId;
     }
 
-    public void setMenuId(Long menuId) {
-        this.menuId = menuId;
+    public void setCatererId(Long catererId) {
+        this.catererId = catererId;
     }
 
     public List<OrderItemDto> getDishDtoList() {

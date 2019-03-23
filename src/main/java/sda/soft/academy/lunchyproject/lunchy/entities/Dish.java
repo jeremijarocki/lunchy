@@ -19,14 +19,19 @@ public class Dish {
     @Enumerated(EnumType.STRING)
     private DishType dishType;
 
+    @OneToOne
+    @JoinColumn(name = "caterers_id")
+    private Caterer catererId;
+
     public Dish() {
     }
 
-    public Dish(Long id, String name, BigDecimal price, DishType dishType) {
+    public Dish(Long id, String name, BigDecimal price, DishType dishType, Caterer catererId) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.dishType = dishType;
+        this.catererId = catererId;
     }
 
     public Long getId() {
@@ -59,6 +64,14 @@ public class Dish {
 
     public void setDishType(DishType dishType) {
         this.dishType = dishType;
+    }
+
+    public Caterer getCatererId() {
+        return catererId;
+    }
+
+    public void setCatererId(Caterer catererId) {
+        this.catererId = catererId;
     }
 }
 
