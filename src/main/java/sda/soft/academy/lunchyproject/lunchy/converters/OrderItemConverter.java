@@ -24,9 +24,9 @@ public class OrderItemConverter implements BiFunction<OrderItemDto, Order, Order
         orderItem.setOrder(order);
 
         //TODO rozwiąż ten problem, nie wiem z czego to wynika
-//        Long dishId = orderItemDto.getDishId();
-//        Optional<Dish> dish = dishRepository.findById(dishId);
-//        dish.isPresent(dish2 -> orderItem.setDish(dish2));
+        Long dishId = orderItemDto.getDishId();
+        Optional<Dish> dish = dishRepository.findById(dishId);
+        dish.ifPresent(dish1 -> orderItem.setDish(dish1));
 
         return orderItem;
     }

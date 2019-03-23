@@ -10,7 +10,6 @@ bo dokładnie będzie widać ile jest dań danego rodzaju, a jakiś liczniczek k
 Ponadto, może być tak, że ktoś robi zbiorcze zamówienie dla całego pokoju i wrzuca wszystko w jeden ORDER.
 Łatwiej będzie potem im podzielić hajsy, gdy każde danie będzie z osoba wypisane a nie x3.
 
-Skoro nie ma DishItem, to nie trzeba robić OrderBuilder, bo on przede wszystkim polegał na określeniu liczby sztuk produktu.
+Czy powinniśmy cały czas numerować orders i transaction, czy np. powinny numery się resetować danego dnia i następnego od nowa jechać?
 
-Jak budować listy w encjach? Czy do tego musi być stwrzony builder? Bo nie wiem jak wprowadzić przykładowe listy dań.
 

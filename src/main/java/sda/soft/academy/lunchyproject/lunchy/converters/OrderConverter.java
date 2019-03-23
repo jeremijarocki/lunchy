@@ -1,6 +1,5 @@
 package sda.soft.academy.lunchyproject.lunchy.converters;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import sda.soft.academy.lunchyproject.lunchy.dto.OrderDto;
@@ -14,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Component
 public class OrderConverter implements Function<OrderDto, Order> {
@@ -27,6 +27,9 @@ public class OrderConverter implements Function<OrderDto, Order> {
     @Autowired
     private TransactionRepository transactionRepository;
 
+    @Autowired
+    private OrderItemConverter orderItemConverter;
+
     @Override
     public Order apply(OrderDto orderDto) {
         Order order = new Order();
@@ -36,16 +39,13 @@ public class OrderConverter implements Function<OrderDto, Order> {
         if(user.isPresent()) {
             order.setUser(user.get());
         }
-        Optional<Menu> menu = menuRepository.findById(orderDto.getMenuId());
-        if (menu.isPresent()){
-            order.setMenuId(menu.get());
+        order.setMenuId(orderDto.getMenuId());
+        if(orderDto.getDishDtoList() != null) {
+            List<OrderItem> orderItems = orderDto.getDishDtoList()
+                    .stream()
+                    .map(orderItemDto -> orderItemConverter.apply(orderItemDto,order))
+                    .collect(Collectors.toList());
         }
-        //TODO skończ to!
-//        if(orderDto.getDishDtoList() != null) {
-//            List<OrderItem> orderItems = orderDto.getDishDtoList()
-//                    .stream()
-//                    .map(orderItemDto -> )
-//        }
 
         order.setOrderDate(LocalDateTime.now());
 
