@@ -13,3 +13,5 @@ Ponadto, może być tak, że ktoś robi zbiorcze zamówienie dla całego pokoju 
 Czy powinniśmy cały czas numerować orders i transaction, czy np. powinny numery się resetować danego dnia i następnego od nowa jechać?
 
 
+//TODO
+OrderDtoBuilder potrzebuje dodania CatererId
