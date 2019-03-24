@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>DISHES LIST</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<!--<p th:text="'Hello, '" />-->
+
+<div class="container">
+    <h2>DISHES</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th> Id</th>
+            <th> Name</th>
+            <th> Price</th>
+            <th> Dish Type</th>
+            <th> Caterer ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${dishes.empty}">
+
+            <td colspan="2"> No Dishes Available</td>
+
+        </tr>
+
+        <tr th:each="product : ${dishes}">
+
+            <td><span th:text="${dishes.id}"> Id </span></td>
+
+            <td><span th:text="${dishes.name}"> Name </span></td>
+
+            <td><span th:text="${dishes.price}"> Price </span></td>
+
+            <td><span th:text="${dishes.dishType}"> Dish Type </span></td>
+
+            <td><span th:text="${dishes.catererId}"> Caterer ID </span></td>
+
+            <!--na dole wzor do usuwania-->
+            <!--<td><span><a th:href="@{/product/delete(id=${product.id})}">DELETE</a></span></td>-->
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+
+</html>
