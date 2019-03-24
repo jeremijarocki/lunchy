@@ -35,12 +35,20 @@ public class Transaction {
         this.id = id;
     }
 
-    public List<TransactionItem> getOrderList() {
+    public Caterer getCaterer() {
+        return caterer;
+    }
+
+    public void setCaterer(Caterer caterer) {
+        this.caterer = caterer;
+    }
+
+    public List<TransactionItem> getOrdersList() {
         return ordersList;
     }
 
-    public void setOrderList(List<TransactionItem> orderList) {
-        this.ordersList = orderList;
+    public void setOrdersList(List<TransactionItem> ordersList) {
+        this.ordersList = ordersList;
     }
 
     public TransactionStatus getTransactionStatus() {
@@ -49,14 +57,6 @@ public class Transaction {
 
     public void setTransactionStatus(TransactionStatus transactionStatus) {
         this.transactionStatus = transactionStatus;
-    }
-
-    public Caterer getCaterer() {
-        return caterer;
-    }
-
-    public void setCaterer(Caterer caterer) {
-        this.caterer = caterer;
     }
 }
 

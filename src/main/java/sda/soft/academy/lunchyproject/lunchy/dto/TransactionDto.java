@@ -14,6 +14,12 @@ public class TransactionDto {
     public TransactionDto() {
     }
 
+    public TransactionDto(Long id, Long catererId, String transactionStatus) {
+        this.id = id;
+        this.catererId = catererId;
+        this.transactionStatus = transactionStatus;
+    }
+
     public TransactionDto(Long id, Long catererId, List<TransactionItemDto> orderList, String transactionStatus) {
         this.id = id;
         this.catererId = catererId;
