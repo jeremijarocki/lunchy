@@ -13,7 +13,7 @@ public class Transaction {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "caterer_id")
+    @JoinColumn(name = "caterers_id")
     private Caterer caterer;
 
     @OneToMany(mappedBy = "transaction")
