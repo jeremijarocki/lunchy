@@ -69,10 +69,10 @@ public class OrderServiceImplTest {
         OrderDto orderDto = orderService.findById(8l);
         Assert.assertEquals(3, orderDto.getUserId().longValue());
 }
-//TODO do zrobienia jeszcze ten test
+
     @Test
     public void shouldFindOrderWithDishes() throws OrderNotFoundException {
-//        OrderDto orderDto = orderService.findById(2l);
-//        Assert.assertEquals(2, orderDto.getDishDtoList().size());
+        OrderDto orderDto = orderService.findById(4l);
+        Assert.assertEquals(2l, orderDto.getDishDtoList().size());
     }
 }
