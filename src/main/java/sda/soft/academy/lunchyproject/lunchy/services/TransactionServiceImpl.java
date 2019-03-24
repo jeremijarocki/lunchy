@@ -9,6 +9,7 @@ import sda.soft.academy.lunchyproject.lunchy.entities.Transaction;
 import sda.soft.academy.lunchyproject.lunchy.exceptions.TransactionNotFoundException;
 import sda.soft.academy.lunchyproject.lunchy.repository.TransactionRepository;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -26,6 +27,7 @@ public class TransactionServiceImpl implements TransactionService{
     @Override
     public void save(TransactionDto transactionDto) {
         Transaction transaction = transactionConverter.apply(transactionDto);
+        transaction.setTransactionDate(LocalDate.now());
         transactionRepository.save(transaction);
     }
 

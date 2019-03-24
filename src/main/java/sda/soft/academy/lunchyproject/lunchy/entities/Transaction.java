@@ -1,6 +1,7 @@
 package sda.soft.academy.lunchyproject.lunchy.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -23,6 +24,8 @@ public class Transaction {
 
     @Enumerated(value = EnumType.STRING)
     private TransactionStatus transactionStatus;
+
+    private LocalDate transactionDate;
 
     public Transaction() {
     }
@@ -57,6 +60,14 @@ public class Transaction {
 
     public void setTransactionStatus(TransactionStatus transactionStatus) {
         this.transactionStatus = transactionStatus;
+    }
+
+    public LocalDate getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(LocalDate transactionDate) {
+        this.transactionDate = transactionDate;
     }
 }
 
