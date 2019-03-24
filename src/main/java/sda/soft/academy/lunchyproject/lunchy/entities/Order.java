@@ -41,7 +41,7 @@ public class Order {
 //  stworzyć swoje zamówienie, które natychmiast zostanie dodane do wcześniej wybranej transakcji.
 
     @ManyToOne
-    @JoinColumn(name = "caterer_id")
+    @JoinColumn(name = "caterers_id")
     private Caterer catererId;
 
     public Order() {
