@@ -2,6 +2,7 @@ package sda.soft.academy.lunchyproject.lunchy.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import sda.soft.academy.lunchyproject.lunchy.entities.Caterer;
 import sda.soft.academy.lunchyproject.lunchy.entities.Dish;
 
 import java.util.List;
@@ -16,5 +17,5 @@ public interface DishRepository extends CrudRepository<Dish, Long> {
     @Override
     Iterable<Dish> findAll();
 
-    Optional<List<Dish>> findAllByCatererId(Long catererId);
+    Optional<List<Dish>> findAllByCatererId(Caterer catererId);
 }
