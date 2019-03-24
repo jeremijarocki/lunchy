@@ -21,6 +21,11 @@ public class OrderItem {
     public OrderItem() {
     }
 
+    public OrderItem(Dish dish, Order order) {
+        this.dish = dish;
+        this.order = order;
+    }
+
     public Long getId() {
         return id;
     }

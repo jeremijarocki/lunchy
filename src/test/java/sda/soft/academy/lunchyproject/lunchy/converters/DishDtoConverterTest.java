@@ -34,7 +34,8 @@ public class DishDtoConverterTest {
         //WHEN
         DishDto dishDto = dishConverter.apply(dish);
         //THEN
-        new DishDtoAssert(dishDto).hasId(2L).hasName("SCHABOWY Z ZIEMNIAKAMI I SURÓWKĄ");
+        new DishDtoAssert(dishDto).hasId(2L).hasName("SCHABOWY Z ZIEMNIAKAMI I SURÓWKĄ").
+                hasPrice(BigDecimal.valueOf(13.99)).hasDishType(DishType.MEAT.name()).hasCatererId(2L);;
     }
 
 }

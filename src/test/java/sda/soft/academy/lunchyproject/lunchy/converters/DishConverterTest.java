@@ -29,6 +29,7 @@ public class DishConverterTest {
         //WHEN
         Dish dish = dishConverter.apply(dishDto);
         //THEN
-        new DishAssert(dish).hasId(1L).hasName("TIKKA MASALA");
+        new DishAssert(dish).hasId(1L).hasName("TIKKA MASALA").hasPrice(BigDecimal.valueOf(19.99)).
+                hasType(dish.getDishType()).hasCaterer(dish.getCatererId());
     }
 }
