@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import sda.soft.academy.lunchyproject.lunchy.dto.DishDto;
+import sda.soft.academy.lunchyproject.lunchy.entities.Caterer;
 import sda.soft.academy.lunchyproject.lunchy.entities.Dish;
+import sda.soft.academy.lunchyproject.lunchy.repository.CatererRepository;
 import sda.soft.academy.lunchyproject.lunchy.repository.DishRepository;
 import sda.soft.academy.lunchyproject.lunchy.services.DishService;
 import sda.soft.academy.lunchyproject.lunchy.services.DishServiceImpl;
@@ -28,6 +30,9 @@ public class LunchyController {
     private DishRepository dishRepository;
 
     @Autowired
+    private CatererRepository catererRepository;
+
+    @Autowired
     private Function<Dish, DishDto> dishDtoConverter;
 
     @Autowired
@@ -43,6 +48,19 @@ public class LunchyController {
         List<DishDto> dishDtoList = dishServiceImpl.findAllDishes();
         model.addAttribute("dishes", dishDtoList);
         return "dishList";
+    }
+
+    @GetMapping("/list/{id}")
+    public String listFromSingleCaterer(@PathVariable Long id, Model model) {
+        Optional<Caterer> caterer = catererRepository.findById(id);
+        if(caterer.isPresent()) {
+            model.addAttribute("caterer", caterer.get());
+            List<DishDto> dishList = dishServiceImpl.findDishes(caterer.get());
+            model.addAttribute("dishes", dishList);
+        } else {
+            model.addAttribute("errorMsg", "There is no such caterer with id = " + id);
+        }
+        return "dishCatererList";
     }
 
     @GetMapping("/dish/{id}")

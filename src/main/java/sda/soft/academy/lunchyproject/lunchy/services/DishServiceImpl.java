@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import sda.soft.academy.lunchyproject.lunchy.dao.DishDaoImpl;
 import org.springframework.stereotype.Service;
 import sda.soft.academy.lunchyproject.lunchy.dto.DishDto;
+import sda.soft.academy.lunchyproject.lunchy.entities.Caterer;
 import sda.soft.academy.lunchyproject.lunchy.entities.Dish;
 import sda.soft.academy.lunchyproject.lunchy.repository.DishRepository;
 
@@ -34,10 +35,14 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public List<DishDto> findDishes(Long catererId) {
-        Optional<List<Dish>> dishes = dishRepository.findAllByCatererId(2L);
-        List<Dish> dishList = dishes.get();
-        return dishList.stream().map(dishDtoConverter).collect(Collectors.toList());
+    public List<DishDto> findDishes(Caterer catererId) {
+        Optional<List<Dish>> dishes = dishRepository.findAllByCatererId(catererId);
+        if(dishes.isPresent()) {
+            List<Dish> dishList = dishes.get();
+            return dishList.stream().map(dishDtoConverter).collect(Collectors.toList());
+        } else {
+            return null;
+        }
     }
 
     @Override
