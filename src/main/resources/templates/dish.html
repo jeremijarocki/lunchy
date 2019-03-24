@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Getting Started: Serving Web Content</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="alert alert-warning" th:if="${errorMsg != null}" th:text="${errorMsg}"></div>
+
+    <form class="form-horizontal" action="/dish/save" th:object="${dishDto}" th:if="${dishDto != null}" method="post">
+        <div class="form-group">
+            <label for="name">Dish Name:</label>
+            <input type="text" name="name" class="form-control" id="name" th:field="${dishDto.name}">
+        </div>
+        <div class="form-group">
+            <label for="price">Dish Price:</label>
+            <input type="text" name="price" class="form-control" id="price"  th:field="${dishDto.price}">
+        </div>
+        <div class="form-group">
+            <label for="name">Dish Type:</label>
+            <input type="text" name="productType" class="form-control" id="dishType"
+                   th:field="${dishDto.dishType}">
+        </div>
+        <input type="hidden" name="id" th:field="${dishDto.id}">
+        <!--<button type="submit" class="btn btn-primary">Save</button>-->
+    </form>
+
+</div>
+
+
+</body>
+
+</html>
