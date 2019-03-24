@@ -8,7 +8,6 @@ import sda.soft.academy.lunchyproject.lunchy.dto.TransactionItemDto;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO zrób to kmiocie
 public class TransactionDtoBuilder {
 
     private Long id;

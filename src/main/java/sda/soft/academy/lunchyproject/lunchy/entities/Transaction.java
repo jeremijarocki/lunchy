@@ -8,6 +8,10 @@ import java.util.List;
 @Table(name = "transactions")
 public class Transaction {
 
+    //TODO potrzeba dorzucić tutaj jeszcze usera, czyli gościa, który jest odpowiedzialny za tę transakcję.
+//    może to pole być ustawiane w momencie, gdy pierwsze zamówienie tej transakcji zostanie zapisane.
+//    wtedy user z pierwszego zamówienia zostanie automatycznie userem transakcji
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

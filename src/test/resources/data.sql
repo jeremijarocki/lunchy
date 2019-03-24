@@ -52,6 +52,9 @@ VALUES (1, 'IN_PREPARATION', '2019-03-20');
 INSERT INTO TRANSACTIONS (CATERERs_ID, TRANSACTION_STATUS, TRANSACTION_DATE)
 VALUES (2, 'IN_PREPARATION', '2019-03-20');
 
+INSERT INTO TRANSACTIONS (CATERERs_ID, TRANSACTION_STATUS, TRANSACTION_DATE)
+VALUES (1, 'IN_PREPARATION', '2019-03-21');
+
 --adding order
 
 INSERT INTO orders(users_id, order_date, CATERERs_ID, transactions_id)
@@ -60,40 +63,41 @@ VALUES (1, '2019-03-16', 1, 1);
 
 INSERT INTO orders(users_id, order_date, CATERERs_ID, transactions_id)
 
-VALUES (1, '2019-03-17', 2,1);
+VALUES (1, '2019-03-17', 2, 1);
 
 INSERT INTO orders(users_id, order_date, CATERERs_ID, transactions_id)
 
-VALUES (1, '2019-03-18', 1,2);
+VALUES (1, '2019-03-18', 1, 2);
 
 INSERT INTO orders(users_id, order_date, CATERERs_ID, transactions_id)
 
-VALUES (2, '2019-03-21', 1,2);
+VALUES (2, '2019-03-21', 1, 2);
 
 INSERT INTO orders(users_id, order_date, CATERERs_ID, transactions_id)
 
-VALUES (3, '2019-03-21', 2,2);
+VALUES (3, '2019-03-21', 2, 2);
+
 --adding order_items
 
 INSERT INTO order_items (dishes_id, orders_id)
 
-values (1, 1);
+values (1, 4);
 
 INSERT INTO order_items (dishes_id, orders_id)
 
-values (2, 1);
+values (2, 4);
 
 INSERT INTO order_items (dishes_id, orders_id)
 
-values (3, 2);
+values (3, 5);
 
 INSERT INTO order_items (dishes_id, orders_id)
 
-values (4, 3);
+values (4, 6);
 
 INSERT INTO order_items (dishes_id, orders_id)
 
-values (5, 2);
+values (5, 6);
 
 --adding transaction items
 
