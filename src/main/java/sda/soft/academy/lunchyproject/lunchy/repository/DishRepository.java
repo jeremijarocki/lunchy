@@ -13,7 +13,8 @@ public interface DishRepository extends CrudRepository<Dish, Long> {
     @Override
     Optional<Dish> findById(Long aLong);
 
-    Optional<List<Dish>> findAllByCatererId(Long catererId);
+    @Override
+    Iterable<Dish> findAll();
 
-    Optional<List<Dish>> findAllBy();
+    Optional<List<Dish>> findAllByCatererId(Long catererId);
 }
