@@ -4,6 +4,10 @@ INSERT INTO USERS (login, password)
 
 VALUES ('tester', 'e99a18c428cb38d5f260853678922e03');
 
+INSERT INTO USERS (login, password)
+
+VALUES ('Jeremi', 'e99a18c428cb38d5f260853678922e03');
+
 --adding caterers
 
 INSERT INTO CATERERS (NAME, ADDRESS, CUISINE, TELEPHONE, EMAIL)
@@ -42,6 +46,14 @@ INSERT INTO orders(users_id, order_date, CATERER_ID)
 
 VALUES (1, '2019-03-16', 1);
 
+INSERT INTO orders(users_id, order_date, CATERER_ID)
+
+VALUES (1, '2019-03-17', 2);
+
+INSERT INTO orders(users_id, order_date, CATERER_ID)
+
+VALUES (1, '2019-03-18', 1);
+
 --adding order_items
 
 INSERT INTO order_items (dishes_id, orders_id)
@@ -54,6 +66,31 @@ values (2, 1);
 
 INSERT INTO order_items (dishes_id, orders_id)
 
-values (3, 1);
+values (3, 2);
+
+INSERT INTO order_items (dishes_id, orders_id)
+
+values (4, 3);
+
+INSERT INTO order_items (dishes_id, orders_id)
+
+values (5, 2);
 
 --adding transactions
+
+INSERT INTO TRANSACTIONS (CATERER_ID, TRANSACTION_STATUS, TRANSACTION_DATE)
+VALUES ( 1, 'IN_PREPARATION', '2019-03-20' );
+
+INSERT INTO TRANSACTIONS (CATERER_ID, TRANSACTION_STATUS, TRANSACTION_DATE)
+VALUES ( 2, 'IN_PREPARATION', '2019-03-20' );
+
+--adding transaction items
+
+INSERT INTO TRANSACTION_ITEMS (ORDERS_ID, TRANSACTIONS_ID)
+VALUES ( 1,1 );
+
+INSERT INTO TRANSACTION_ITEMS (ORDERS_ID, TRANSACTIONS_ID)
+VALUES ( 2,1 );
+
+INSERT INTO TRANSACTION_ITEMS (ORDERS_ID, TRANSACTIONS_ID)
+VALUES ( 3,2 );

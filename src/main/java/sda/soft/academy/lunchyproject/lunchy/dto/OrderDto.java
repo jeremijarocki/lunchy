@@ -18,10 +18,12 @@ public class OrderDto {
     public OrderDto() {
     }
 
-    public OrderDto(Long id, Long userId,  LocalDateTime orderDate) {
+    public OrderDto(Long id, Long userId, Long catererId, LocalDateTime orderDate, Long transactionId) {
         this.id = id;
         this.userId = userId;
+        this.catererId = catererId;
         this.orderDate = orderDate;
+        this.transactionId = transactionId;
     }
 
     public Long getId() {

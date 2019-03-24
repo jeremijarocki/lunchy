@@ -9,16 +9,12 @@ import java.util.List;
 
 public class OrderDtoBuilder {
 
-//TODO dlaczego w tym builderze nie ma 2 pól z klasy OrderDto? Czy w takim razie poprawnie on się buduje?
-
     private Long id;
     private Long userId;
     private LocalDateTime date;
     private List<OrderItemDto> dishes;
-
-//      brakuje poniższych dwóch pól
-//    private Long catererId;
-//    private Long transactionId;
+    private Long catererId;
+    private Long transactionId;
 
     public OrderDtoBuilder id(Long id) {
         this.id = id;
@@ -35,6 +31,16 @@ public class OrderDtoBuilder {
         return this;
     }
 
+    public OrderDtoBuilder catererId(Long catererId) {
+        this.catererId = catererId;
+        return this;
+    }
+
+    public OrderDtoBuilder transactionId(Long transactionId) {
+        this.transactionId = transactionId;
+        return this;
+    }
+
     public OrderDtoBuilder addItem(List<Long> dishIds) {
         if (dishes == null) {
             dishes = new ArrayList<OrderItemDto>();
@@ -46,9 +52,9 @@ public class OrderDtoBuilder {
         }
         return this;
     }
-//TODO dlaczego tutaj są tylko trzy pola w parametrze? A gdzie są pozostałe? Lista jest dodana później, ale brakuje jeszcze 2 pól
+
     public OrderDto build (){
-        OrderDto orderDto = new OrderDto(id, userId, date);
+        OrderDto orderDto = new OrderDto(id, userId, catererId, date, transactionId);
         orderDto.setDishDtoList(dishes);
         return orderDto;
     }
