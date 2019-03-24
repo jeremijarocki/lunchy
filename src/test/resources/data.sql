@@ -1,4 +1,3 @@
--- login tester, haslo abc123 (zahashowane)
 
 INSERT INTO USERS (login, password)
 
@@ -12,7 +11,6 @@ INSERT INTO USERS (login, password)
 
 VALUES ('Maćko', 'e99a18c428cb38d5f260853678922e03');
 
---adding caterers
 
 INSERT INTO CATERERS (NAME, ADDRESS, CUISINE, TELEPHONE, EMAIL)
 
@@ -22,7 +20,6 @@ INSERT INTO CATERERS (NAME, ADDRESS, CUISINE, TELEPHONE, EMAIL)
 
 VALUES ('U BABUNI', 'RACŁAWICKA 15, WARSZAWA 02-570', 'POLISH', '2232656446', 'UBABUNI@O2.PL');
 
---adding dishes
 
 INSERT INTO DISHES (NAME, PRICE, DISH_TYPE, CATERERS_ID)
 
@@ -44,7 +41,6 @@ INSERT INTO DISHES (NAME, PRICE, DISH_TYPE, CATERERS_ID)
 
 VALUES ('RYŻ SMAŻONY Z KURCZAKIEM', 12.99, 'MEAT', 1);
 
---adding transactions
 
 INSERT INTO TRANSACTIONS (CATERERs_ID, TRANSACTION_STATUS, TRANSACTION_DATE)
 VALUES (1, 'IN_PREPARATION', '2019-03-20');
@@ -55,7 +51,6 @@ VALUES (2, 'IN_PREPARATION', '2019-03-20');
 INSERT INTO TRANSACTIONS (CATERERs_ID, TRANSACTION_STATUS, TRANSACTION_DATE)
 VALUES (1, 'IN_PREPARATION', '2019-03-21');
 
---adding order
 
 INSERT INTO orders(users_id, order_date, CATERERs_ID, transactions_id)
 
@@ -77,7 +72,6 @@ INSERT INTO orders(users_id, order_date, CATERERs_ID, transactions_id)
 
 VALUES (3, '2019-03-21', 2, 2);
 
---adding order_items
 
 INSERT INTO order_items (dishes_id, orders_id)
 
@@ -99,7 +93,6 @@ INSERT INTO order_items (dishes_id, orders_id)
 
 values (5, 6);
 
---adding transaction items
 
 INSERT INTO TRANSACTION_ITEMS (ORDERS_ID, TRANSACTIONS_ID)
 VALUES (1, 1);
