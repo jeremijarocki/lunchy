@@ -18,8 +18,4 @@ public class OrderDtoAssert {
         return this;
     }
 
-    public OrderDtoAssert hasOrderDate(LocalDateTime expectedDate) {
-        Assert.assertEquals(expectedDate, orderDto.getOrderDate());
-        return this;
-    }
 }

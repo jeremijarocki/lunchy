@@ -6,6 +6,7 @@ import sda.soft.academy.lunchyproject.lunchy.converters.TransactionConverter;
 import sda.soft.academy.lunchyproject.lunchy.converters.TransactionDtoConverter;
 import sda.soft.academy.lunchyproject.lunchy.dto.TransactionDto;
 import sda.soft.academy.lunchyproject.lunchy.entities.Transaction;
+import sda.soft.academy.lunchyproject.lunchy.entities.TransactionStatus;
 import sda.soft.academy.lunchyproject.lunchy.exceptions.TransactionNotFoundException;
 import sda.soft.academy.lunchyproject.lunchy.repository.TransactionRepository;
 
@@ -28,6 +29,7 @@ public class TransactionServiceImpl implements TransactionService{
     public void save(TransactionDto transactionDto) {
         Transaction transaction = transactionConverter.apply(transactionDto);
         transaction.setTransactionDate(LocalDate.now());
+        transaction.setTransactionStatus(TransactionStatus.IN_PREPARATION);
         transactionRepository.save(transaction);
     }
 
