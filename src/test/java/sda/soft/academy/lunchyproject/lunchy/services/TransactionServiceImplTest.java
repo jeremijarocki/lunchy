@@ -67,17 +67,13 @@ public class TransactionServiceImplTest {
 
     @Test
     public void shouldFindTransactionWithoutOrders() throws TransactionNotFoundException {
-        TransactionDto transactionDto = transactionService.findById(3l);
-        Assert.assertEquals(1, transactionDto.getCatererId().longValue());
-    }
-
-    //     oba sqlowe pliki sie uruchamiają i dlatego numeracja z pliku testowego leci dalej, zamiast zaczać się od nowa.
-//    transaction testowy o numerze 3 (w data.sql), tutaj ma już numer 5.
-//    ordery też się dodają wedle ten sumarycznej numeracji i pierwsza transakcja na 4 ordery zamiast 2
+        Optional<Transaction> transaction = transactionRepository.findById(7l);
+        new TransactionAssert(transaction.get()).hasOrders(0).hasCatererId(7l);
+        }
 
     @Test
     public void shouldFindTransactionWithDishes() throws TransactionNotFoundException {
-        TransactionDto transactionDto = transactionService.findById(1l);
-        Assert.assertEquals(4, transactionDto.getOrderList().size());
+        Optional<Transaction> transaction = transactionRepository.findById(3l);
+        new TransactionAssert(transaction.get()).hasOrders(1).hasCatererId(3l);
     }
 }
