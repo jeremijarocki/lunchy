@@ -61,18 +61,15 @@ public class OrderServiceImplTest {
         new OrderAssert(order.get()).hasDishes(0).hasUserLogin("Jeremi");
     }
 
-    // oba sqlowe pliki sie uruchamiają i dlatego numeracja z pliku testowego leci dalej, zamiast zaczać się od nowa.
-//    order testowy o numerzze 5 (w data.sql), tutaj ma już numer 8
-
     @Test
     public void shouldFindOrderWithoutDishes() throws OrderNotFoundException {
-        OrderDto orderDto = orderService.findById(8l);
-        Assert.assertEquals(3, orderDto.getUserId().longValue());
+        Optional<Order> order = orderRepository.findById(6l);
+        new OrderAssert(order.get()).hasDishes(0).hasUserLogin("Kamil");
 }
 
     @Test
     public void shouldFindOrderWithDishes() throws OrderNotFoundException {
-        OrderDto orderDto = orderService.findById(4l);
-        Assert.assertEquals(2l, orderDto.getDishDtoList().size());
+        Optional<Order> order = orderRepository.findById(2l);
+        new OrderAssert(order.get()).hasDishes(3).hasUserLogin("Jeremi");
     }
 }
