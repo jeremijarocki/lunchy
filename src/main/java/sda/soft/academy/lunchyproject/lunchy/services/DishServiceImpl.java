@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import sda.soft.academy.lunchyproject.lunchy.dao.DishDao;
 //import sda.soft.academy.lunchyproject.lunchy.dao.DishDaoImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sda.soft.academy.lunchyproject.lunchy.dto.DishDto;
 import sda.soft.academy.lunchyproject.lunchy.entities.Caterer;
 import sda.soft.academy.lunchyproject.lunchy.entities.Dish;
@@ -17,7 +18,6 @@ import java.util.stream.Collectors;
 @Service
 public class DishServiceImpl implements DishService {
 
-
     @Autowired
     private DishRepository dishRepository;
 
@@ -25,13 +25,12 @@ public class DishServiceImpl implements DishService {
     private Function<Dish, DishDto> dishDtoConverter;
 
     @Override
+    @Transactional
     public void save(Dish dish) {
-
     }
 
     @Override
     public void delete(Long dishId) {
-
     }
 
     @Override

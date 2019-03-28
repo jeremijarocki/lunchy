@@ -17,12 +17,6 @@ public class Order {
     @JoinColumn(name = "users_id")
     private User user;
 
-//    @OneToOne
-//    @JoinColumn(name = "caterer_id")
-//    private Caterer caterer;
-//    to jest raczej zbędne, bo w transakcji jest określony caterer i tylko z jego menu można wybierać dania.
-//    może się przyda do jakiegoś obustronnego sprawdzenia później?
-
     @OneToMany (mappedBy = "order")
     private List<OrderItem> dishList;
 //  zamówienie jest składane przez jedną osobę, ale ta osoba może zamówić więcej niż jedno danie, bo np. jest JUBY.
