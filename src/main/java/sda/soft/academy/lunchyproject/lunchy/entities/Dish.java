@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 @Table(name = "dishes")
 public class Dish {
 
-//    encja dań, zakładamy, że każde dane ma indywidualny numer i przynależy tylko do jednego menu.
+//    encja dań, zakładamy, że każde danie ma indywidualny numer i przynależy tylko do jednego menu.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

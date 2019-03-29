@@ -2,6 +2,7 @@ package sda.soft.academy.lunchyproject.lunchy.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sda.soft.academy.lunchyproject.lunchy.converters.OrderConverter;
 import sda.soft.academy.lunchyproject.lunchy.converters.OrderDtoConverter;
 import sda.soft.academy.lunchyproject.lunchy.dto.OrderDto;
@@ -25,6 +26,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderDtoConverter orderDtoConverter;
 
     @Override
+    @Transactional
     public void save(OrderDto orderDto) {
         Order order = orderConverter.apply(orderDto);
         order.setOrderDate(LocalDateTime.now());
@@ -40,5 +42,4 @@ public class OrderServiceImpl implements OrderService {
             throw new OrderNotFoundException("We couldn't find such order no - " + id + " in our database");
         }
     }
-
 }

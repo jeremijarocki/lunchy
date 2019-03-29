@@ -12,19 +12,15 @@ public class OrderDto {
     private Long userId;
     private Long catererId;
     private List<OrderItemDto> dishDtoList;
-    private LocalDateTime orderDate;
     private Long transactionId;
 
     public OrderDto() {
     }
-//TODO mamy tutaj datę przy tworzeniu OrderDto, jednakże ta data raczej do niczego nie jest nam potrzebna.
-//    Podczas zapisywania będziemy nadpisywać tę datę, gdy zamówienie będzie gotowe i zostanie dodane do bazy
 
-    public OrderDto(Long id, Long userId, Long catererId, /*LocalDateTime orderDate,*/ Long transactionId) {
+    public OrderDto(Long id, Long userId, Long catererId, Long transactionId) {
         this.id = id;
         this.userId = userId;
         this.catererId = catererId;
-//        this.orderDate = LocalDateTime.now();
         this.transactionId = transactionId;
     }
 
@@ -59,14 +55,6 @@ public class OrderDto {
     public void setDishDtoList(List<OrderItemDto> dishDtoList) {
         this.dishDtoList = dishDtoList;
     }
-//
-//    public LocalDateTime getOrderDate() {
-//        return orderDate;
-//    }
-//
-//    public void setOrderDate(LocalDateTime orderDate) {
-//        this.orderDate = orderDate;
-//    }
 
     public Long getTransactionId() {
         return transactionId;

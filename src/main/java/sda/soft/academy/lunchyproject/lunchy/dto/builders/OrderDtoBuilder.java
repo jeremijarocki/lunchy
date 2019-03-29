@@ -11,7 +11,6 @@ public class OrderDtoBuilder {
 
     private Long id;
     private Long userId;
-//    private LocalDateTime date;
     private List<OrderItemDto> dishes;
     private Long catererId;
     private Long transactionId;
@@ -25,11 +24,6 @@ public class OrderDtoBuilder {
         this.userId = userId;
         return this;
     }
-//TODO to jest raczej zbędne tutaj
-//    public OrderDtoBuilder date(LocalDateTime date) {
-//        this.date = date;
-//        return this;
-//    }
 
     public OrderDtoBuilder catererId(Long catererId) {
         this.catererId = catererId;

@@ -2,6 +2,7 @@ package sda.soft.academy.lunchyproject.lunchy.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sda.soft.academy.lunchyproject.lunchy.converters.TransactionConverter;
 import sda.soft.academy.lunchyproject.lunchy.converters.TransactionDtoConverter;
 import sda.soft.academy.lunchyproject.lunchy.dto.TransactionDto;
@@ -26,6 +27,7 @@ public class TransactionServiceImpl implements TransactionService{
     private TransactionDtoConverter transactionDtoConverter;
 
     @Override
+    @Transactional
     public void save(TransactionDto transactionDto) {
         Transaction transaction = transactionConverter.apply(transactionDto);
         transaction.setTransactionDate(LocalDate.now());
