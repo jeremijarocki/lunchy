@@ -31,6 +31,16 @@ public class Transaction {
 
     private LocalDate transactionDate;
 
+    private String additionalComments;
+
+    @ManyToOne
+    @JoinColumn(name = "companies_id")
+    private Company company;
+
+    @OneToOne
+    @JoinColumn(name = "users_id")
+    private User user;
+
     public Transaction() {
     }
 
@@ -72,6 +82,30 @@ public class Transaction {
 
     public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public String getAdditionalComments() {
+        return additionalComments;
+    }
+
+    public void setAdditionalComments(String additionalComments) {
+        this.additionalComments = additionalComments;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

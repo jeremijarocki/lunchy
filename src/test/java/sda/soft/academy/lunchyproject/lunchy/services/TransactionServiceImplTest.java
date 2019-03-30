@@ -45,6 +45,9 @@ public class TransactionServiceImplTest {
                 .catererId(1l)
                 .addItem(Arrays.asList(1l, 2l))
                 .status("IN PREPARATION")
+                .additionalComments("3 piętro, piękny Marek")
+                .companyId(1l)
+                .userId(2l)
                 .build();
         transactionService.save(transactionDto);
 
@@ -58,6 +61,9 @@ public class TransactionServiceImplTest {
                 .id(3l)
                 .catererId(1l)
                 .status("IN PREPARATION")
+                .additionalComments("kiełbaska wysmażona ma być!")
+                .companyId(2l)
+                .userId(1l)
                 .build();
 
         transactionService.save(transactionDto);

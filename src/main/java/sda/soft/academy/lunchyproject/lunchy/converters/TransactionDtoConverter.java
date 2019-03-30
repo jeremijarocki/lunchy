@@ -29,6 +29,9 @@ public class TransactionDtoConverter implements Function<Transaction, Transactio
             transactionDto.setOrderList(orders);
         }
         transactionDto.setTransactionStatus(transaction.getTransactionStatus().name());
+        transactionDto.setAdditionalComments(transaction.getAdditionalComments());
+        transactionDto.setCompanyId(transaction.getCompany().getId());
+        transactionDto.setUserId(transaction.getUser().getId());
 
         return transactionDto;
     }

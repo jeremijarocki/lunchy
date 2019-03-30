@@ -28,6 +28,10 @@ public class User {
     private LocalDateTime insertDate;
     private LocalDateTime updateDate;
 
+    @ManyToOne
+    @JoinColumn(name = "companies_id")
+    private Company companyId;
+
     public User() {
     }
 
@@ -125,5 +129,13 @@ public class User {
 
     public void setUpdateDate(LocalDateTime updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public Company getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Company companyId) {
+        this.companyId = companyId;
     }
 }
