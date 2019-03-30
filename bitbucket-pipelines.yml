@@ -13,7 +13,7 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - mvn -B clean test # -B batch mode makes Maven less verbose
   branches:
-    master:
+    devA:
       - step:
           name: Deploy to test env
           deployment: test
