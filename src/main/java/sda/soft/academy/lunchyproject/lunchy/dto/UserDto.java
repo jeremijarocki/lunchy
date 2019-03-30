@@ -41,6 +41,9 @@ public class UserDto {
     @Size(min = 2, max = 50)
     private String lastName;
 
+    @NotNull
+    private Long companyId;
+
     public UserDto() {
     }
 
@@ -106,5 +109,13 @@ public class UserDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 }
