@@ -1,6 +1,5 @@
 package sda.soft.academy.lunchyproject.lunchy.web;
 
-import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,17 +12,11 @@ import sda.soft.academy.lunchyproject.lunchy.entities.Dish;
 import sda.soft.academy.lunchyproject.lunchy.repository.CatererRepository;
 import sda.soft.academy.lunchyproject.lunchy.repository.DishRepository;
 import sda.soft.academy.lunchyproject.lunchy.services.CatererServiceImpl;
-import sda.soft.academy.lunchyproject.lunchy.services.DishService;
 import sda.soft.academy.lunchyproject.lunchy.services.DishServiceImpl;
 
-import javax.servlet.RequestDispatcher;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Controller
 public class LunchyController {
