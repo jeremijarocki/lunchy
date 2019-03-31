@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>History of transactions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="icon" href="http://icons.iconarchive.com/icons/martin-berube/square-animal/256/Lizard-icon.png">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="page-header">
+    <h1>Transactions made in your company</h1>
+</div>
+<div class="text-center">
+    <h2 th:text="'Robaczku, sprawdź sobie wszystkie transakcje poniżej'"/>
+    <img src="https://cdn.datafloq.com/cache/blog_pictures/878x531/what-is-blockchain-transactions-smart-contracts.jpg"
+         class="img-circle" alt="Cinque Terre">
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th> Id</th>
+        <th> Caterer id</th>
+        <th> List of orders</th>
+        <th> Transaction status</th>
+        <th> Additional comments</th>
+        <th> User</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${transactions.empty}">
+        <td colspan="2"> No transactions Available</td>
+    </tr>
+    <tr th:each="transaction : ${transactions}">
+        <td><span th:text="${transaction.id}"> Id </span></td>
+        <td><span th:text="${transaction.catererId}"> Caterer id </span></td>
+        <td><span th:text="${transaction.getOrderList()}"> List of orders </span></td>
+        <td><span th:text="${transaction.transactionStatus}"> Transaction status </span></td>
+        <td><span th:text="${transaction.additionalComments}"> Additional comments </span></td>
+        <td><span th:text="${transaction.companyId}"> Company Id </span></td>
+        <td><span th:text="${transaction.userId}"> User Id</span></td>
+        <!--<td><span><a th:href="@{/product/delete(id=${product.id})}">Kasuj to</a></span></td>-->
+        <!--<td><a th:href="@{/list/{id}(id=${transaction.id})}">Dish list</a></td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

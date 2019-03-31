@@ -75,7 +75,7 @@
         <td><span th:text="${caterer.cuisine}"> Type of cuisine </span></td>
         <td><span th:text="${caterer.address}"> Address </span></td>
         <!--<td><span><a th:href="@{/product/delete(id=${product.id})}">Kasuj to</a></span></td>-->
-        <!--<td><a href="/list/" + th:text="${caterer.id}">Dish list</a></td>-->
+        <td><a th:href="@{/list/{id}(id=${caterer.id})}">Dish list</a></td>
 
     </tr>
     </tbody>

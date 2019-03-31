@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import sda.soft.academy.lunchyproject.lunchy.dto.CatererDto;
 import sda.soft.academy.lunchyproject.lunchy.dto.DishDto;
+import sda.soft.academy.lunchyproject.lunchy.dto.TransactionDto;
 import sda.soft.academy.lunchyproject.lunchy.entities.Caterer;
 import sda.soft.academy.lunchyproject.lunchy.entities.Dish;
 import sda.soft.academy.lunchyproject.lunchy.repository.CatererRepository;
 import sda.soft.academy.lunchyproject.lunchy.repository.DishRepository;
 import sda.soft.academy.lunchyproject.lunchy.services.CatererServiceImpl;
 import sda.soft.academy.lunchyproject.lunchy.services.DishServiceImpl;
+import sda.soft.academy.lunchyproject.lunchy.services.TransactionServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,6 +37,9 @@ public class LunchyController {
 
     @Autowired
     private CatererServiceImpl catererServiceImpl;
+
+    @Autowired
+    private TransactionServiceImpl transactionServiceImpl;
 
     @GetMapping("/home")
     public String mainPage() {
@@ -78,5 +83,12 @@ public class LunchyController {
         List<CatererDto> catererDtos = catererServiceImpl.findAllCaterers();
         model.addAttribute("caterers", catererDtos);
         return "catererList";
+    }
+
+    @GetMapping("/transaction/list")
+    public String showAllTransactions (Model model) {
+        List<TransactionDto> transactionDtos = transactionServiceImpl.findAllTransactions();
+        model.addAttribute("transactions", transactionDtos);
+        return "transactionList";
     }
 }
