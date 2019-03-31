@@ -12,11 +12,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .topnav-right {
+            float: right;
+        }
+    </style>
+
 </head>
 
 <body>
-
-<!--<p th:text="'Hello, '" />-->
+<div th:replace="navbar :: navbar"></div>
 
 <div class="container">
 
@@ -41,16 +75,14 @@
         </tr>
         <tr th:each="dish : ${dishes}">
 
-            <td><span th:text="${dish.id}"> Id </span></td>
+            <!--<td><span th:text="${dish.id}"> Id </span></td>-->
+            <td><span th:text="${dishes.indexOf(dish)+1}"></span> </td>
 
             <td><span th:text="${dish.name}"> Name </span></td>
 
             <td><span th:text="${dish.price}"> Price </span></td>
 
             <td><span th:text="${dish.dishType}"> Dish Type </span></td>
-
-            <!--na dole wzor do usuwania-->
-            <!--<td><span><a th:href="@{/product/delete(id=${product.id})}">DELETE</a></span></td>-->
 
         </tr>
         </tbody>
@@ -60,3 +92,4 @@
 </body>
 
 </html>
+

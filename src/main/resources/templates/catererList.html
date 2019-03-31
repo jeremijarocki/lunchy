@@ -10,8 +10,45 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .topnav-right {
+            float: right;
+        }
+    </style>
+
 </head>
 <body>
+<div th:replace="navbar :: navbar"></div>
 <div class="page-header">
     <h1>Caterers, who deliver to your company</h1>
 </div>
@@ -38,6 +75,8 @@
         <td><span th:text="${caterer.cuisine}"> Type of cuisine </span></td>
         <td><span th:text="${caterer.address}"> Address </span></td>
         <!--<td><span><a th:href="@{/product/delete(id=${product.id})}">Kasuj to</a></span></td>-->
+        <!--<td><a href="/list/" + th:text="${caterer.id}">Dish list</a></td>-->
+
     </tr>
     </tbody>
 </table>
