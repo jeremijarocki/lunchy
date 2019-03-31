@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Available caterers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="icon" href="http://icons.iconarchive.com/icons/martin-berube/square-animal/256/Lizard-icon.png">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="page-header">
+    <h1>Caterers, who deliver to your company</h1>
+</div>
+<div class="text-center">
+    <h2 th:text="'Słodziutki, sprawdź sobie wszystkich dostawców poniżej'" />
+    <img src="https://www.halfbakedharvest.com/wp-content/uploads/2018/09/20-Minute-Thai-Peanut-Chicken-Ramen-1-700x1050.jpg" class="img-circle" alt="Cinque Terre">
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th> Id</th>
+        <th> Name</th>
+        <th> Type of cuisine</th>
+        <th> Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${caterers.empty}">
+        <td colspan="2"> No Caterers Available</td>
+    </tr>
+    <tr th:each="caterer : ${caterers}">
+        <td><span th:text="${caterer.id}"> Id </span></td>
+        <td><span th:text="${caterer.name}"> Name </span></td>
+        <td><span th:text="${caterer.cuisine}"> Type of cuisine </span></td>
+        <td><span th:text="${caterer.address}"> Address </span></td>
+        <!--<td><span><a th:href="@{/product/delete(id=${product.id})}">Kasuj to</a></span></td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

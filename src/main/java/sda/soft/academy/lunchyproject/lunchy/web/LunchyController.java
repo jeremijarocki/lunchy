@@ -6,11 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import sda.soft.academy.lunchyproject.lunchy.dto.CatererDto;
 import sda.soft.academy.lunchyproject.lunchy.dto.DishDto;
 import sda.soft.academy.lunchyproject.lunchy.entities.Caterer;
 import sda.soft.academy.lunchyproject.lunchy.entities.Dish;
 import sda.soft.academy.lunchyproject.lunchy.repository.CatererRepository;
 import sda.soft.academy.lunchyproject.lunchy.repository.DishRepository;
+import sda.soft.academy.lunchyproject.lunchy.services.CatererServiceImpl;
 import sda.soft.academy.lunchyproject.lunchy.services.DishService;
 import sda.soft.academy.lunchyproject.lunchy.services.DishServiceImpl;
 
@@ -37,6 +39,9 @@ public class LunchyController {
 
     @Autowired
     private DishServiceImpl dishServiceImpl;
+
+    @Autowired
+    private CatererServiceImpl catererServiceImpl;
 
     @GetMapping("/home")
     public String mainPage() {
@@ -75,4 +80,10 @@ public class LunchyController {
         return "dish";
     }
 
+    @GetMapping("/caterer/list")
+    public String showAllCaterers(Model model) {
+        List<CatererDto> catererDtos = catererServiceImpl.findAllCaterers();
+        model.addAttribute("caterers", catererDtos);
+        return "catererList";
+    }
 }
