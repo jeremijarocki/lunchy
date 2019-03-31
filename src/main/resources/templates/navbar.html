@@ -33,7 +33,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<html>
+<html th:fragment="navbar">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -73,7 +73,7 @@
 </head>
 <body>
 
-<div class="topnav" th:fragment="navbar">
+<div class="topnav">
     <a class="active" href="#home"><img src="https://i.imgur.com/j0kqCK1.png" height=70 width=140></a>
         <a href="/caterer/list">Caterer List</a>
     <div class="topnav-right">

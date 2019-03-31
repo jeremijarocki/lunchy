@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+<div th:replace="navbar :: navbar"></div>
 <div class="container">
     <div class="alert alert-warning" th:if="${errorMsg != null}" th:text="${errorMsg}"></div>
 
